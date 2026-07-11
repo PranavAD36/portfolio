@@ -1,9 +1,21 @@
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useEffect, useMemo, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import SpaceBackground from '@/components/SpaceBackground';
 
 const skills = ['React', 'TypeScript', 'Tailwind CSS', 'UI Design', 'Accessibility'];
+
+const stats = [
+  { label: 'Projects shipped', value: '12+' },
+  { label: 'Years building', value: '3+' },
+  { label: 'Global launches', value: '8' },
+];
+
+const journey = [
+  { year: '2022', title: 'Started with product interfaces' },
+  { year: '2023', title: 'Expanded into polished frontend systems' },
+  { year: '2024', title: 'Built immersive digital experiences' },
+];
 
 const projects = [
   {
@@ -21,17 +33,8 @@ const projects = [
 ];
 
 export default function HomePage() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [scrollY, setScrollY] = useState(0);
   const [reduceMotion, setReduceMotion] = useState(false);
-
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const springX = useSpring(x, { stiffness: 70, damping: 22 });
-  const springY = useSpring(y, { stiffness: 70, damping: 22 });
-
-  const rotateX = useTransform(springY, [-1, 1], [3, -3]);
-  const rotateY = useTransform(springX, [-1, 1], [-3, 3]);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -47,30 +50,19 @@ export default function HomePage() {
       });
     };
 
-    const handlePointerMove = (event: PointerEvent) => {
-      const { innerWidth, innerHeight } = window;
-      const xValue = (event.clientX / innerWidth - 0.5) * 2;
-      const yValue = (event.clientY / innerHeight - 0.5) * 2;
-      setMousePosition({ x: xValue, y: yValue });
-      x.set(xValue);
-      y.set(yValue);
-    };
-
-    window.addEventListener('pointermove', handlePointerMove);
     window.addEventListener('scroll', handleScroll, { passive: true });
     mediaQuery.addEventListener('change', updatePreference);
 
     handleScroll();
 
     return () => {
-      window.removeEventListener('pointermove', handlePointerMove);
       window.removeEventListener('scroll', handleScroll);
       mediaQuery.removeEventListener('change', updatePreference);
       if (frame) {
         window.cancelAnimationFrame(frame);
       }
     };
-  }, [x, y]);
+  }, []);
 
   const sectionMotion = useMemo(
     () => ({
@@ -84,7 +76,7 @@ export default function HomePage() {
 
   return (
     <div className="page">
-      <SpaceBackground offset={mousePosition} scrollY={scrollY} reduceMotion={reduceMotion} />
+      <SpaceBackground scrollY={scrollY} reduceMotion={reduceMotion} />
       <Navbar />
 
       <main id="home">
@@ -110,7 +102,6 @@ export default function HomePage() {
           <motion.div
             className="hero-card"
             aria-label="Profile summary"
-            style={{ rotateX, rotateY, transformPerspective: 1000 }}
             whileHover={{ y: -6, scale: 1.01, boxShadow: '0 20px 50px rgba(94, 234, 212, 0.18)' }}
             transition={{ type: 'spring', stiffness: 180, damping: 20 }}
           >
@@ -148,6 +139,17 @@ export default function HomePage() {
           </div>
         </motion.section>
 
+        <motion.section className="section" {...sectionMotion}>
+          <div className="stats-grid">
+            {stats.map((stat) => (
+              <div key={stat.label} className="stat-card">
+                <strong>{stat.value}</strong>
+                <span>{stat.label}</span>
+              </div>
+            ))}
+          </div>
+        </motion.section>
+
         <motion.section id="projects" className="section" {...sectionMotion}>
           <p className="eyebrow">Selected work</p>
           <div className="card-grid">
@@ -160,22 +162,62 @@ export default function HomePage() {
               >
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
+                <div className="card-actions">
+                  <a className="button secondary" href="#">
+                    GitHub
+                  </a>
+                  <a className="button primary" href="#">
+                    Live Demo
+                  </a>
+                </div>
               </motion.article>
             ))}
+          </div>
+        </motion.section>
+
+        <motion.section className="section" {...sectionMotion}>
+          <div className="timeline-card">
+            <p className="eyebrow">Journey</p>
+            <div className="timeline-list">
+              {journey.map((item) => (
+                <div key={item.year} className="timeline-item">
+                  <span>{item.year}</span>
+                  <p>{item.title}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </motion.section>
 
         <motion.section id="contact" className="section contact" {...sectionMotion}>
           <p className="eyebrow">Contact</p>
           <h2>Let’s build something simple and meaningful together.</h2>
-          <motion.a
-            className="button primary"
-            href="mailto:hello@pranavdabhi.com"
-            whileHover={{ y: -4, scale: 1.03, boxShadow: '0 16px 45px rgba(56, 189, 248, 0.25)' }}
-            whileTap={{ scale: 0.97 }}
-          >
-            hello@pranavdabhi.com
-          </motion.a>
+          <div className="contact-actions">
+            <motion.a
+              className="button primary"
+              href="#"
+              whileHover={{ y: -4, scale: 1.03, boxShadow: '0 16px 45px rgba(56, 189, 248, 0.25)' }}
+              whileTap={{ scale: 0.97 }}
+            >
+              Resume
+            </motion.a>
+            <motion.a
+              className="button secondary"
+              href="#"
+              whileHover={{ y: -4, scale: 1.03, boxShadow: '0 16px 45px rgba(56, 189, 248, 0.25)' }}
+              whileTap={{ scale: 0.97 }}
+            >
+              LinkedIn
+            </motion.a>
+            <motion.a
+              className="button secondary"
+              href="#"
+              whileHover={{ y: -4, scale: 1.03, boxShadow: '0 16px 45px rgba(56, 189, 248, 0.25)' }}
+              whileTap={{ scale: 0.97 }}
+            >
+              Email
+            </motion.a>
+          </div>
         </motion.section>
       </main>
 
