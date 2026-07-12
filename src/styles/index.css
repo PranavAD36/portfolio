@@ -58,6 +58,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 999px;
   background: rgba(7, 14, 28, 0.62);
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   box-shadow: 0 10px 40px rgba(8, 15, 30, 0.45);
 }
@@ -124,6 +125,7 @@ body {
   background: rgba(255, 255, 255, 0.06);
   color: #f8fafc;
   border: 1px solid rgba(255, 255, 255, 0.16);
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
 }
 
@@ -186,6 +188,7 @@ h1 {
   border-radius: 24px;
   padding: 24px;
   box-shadow: 0 20px 60px rgba(2, 8, 23, 0.4);
+  -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
   position: relative;
   overflow: hidden;
@@ -244,6 +247,7 @@ h1 {
   padding: 10px 14px;
   border-radius: 999px;
   color: rgba(248, 250, 252, 0.9);
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
 }
 

@@ -5,6 +5,7 @@
     "lib": ["ES2022"],
     "types": ["node"],
     "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
 
     /* Bundler mode */
     "module": "ESNext",
