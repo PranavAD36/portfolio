@@ -46,7 +46,7 @@ export default function FeedbackPopup() {
     localStorage.setItem("feedback_given", "skipped"); // Mark as interacted
   };
 
-  // 🚀 SUBMIT HANDLER (Supabase Insert)
+  // 🚀 SUBMIT HANDLER (Local Feedback Placeholder)
   const handleSubmit = async () => {
     if (rating === 0) return;
     setIsSubmitting(true);
