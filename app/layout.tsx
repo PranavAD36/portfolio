@@ -10,9 +10,9 @@ export const metadata: Metadata = {
   title: "Pranav Dabhi | Full Stack Developer",
   description: "Portfolio of Pranav Dabhi, a B.Tech Computer Engineering student and software developer.",
   icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
-    apple: "/logo.png",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
   },
   openGraph: {
     title: "Pranav Dabhi | The Portfolio",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "Pranav Dabhi Portfolio",
     images: [
       {
-        url: "/logo.png",
+        url: "/favicon.ico",
         width: 1200,
         height: 630,
         alt: "Pranav Dabhi",

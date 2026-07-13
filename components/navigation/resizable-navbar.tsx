@@ -8,7 +8,6 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 import React, { useState } from "react";
 
 
@@ -120,14 +119,8 @@ export const NavbarLogo = () => {
       href="/"
       className="relative z-20 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-white"
     >
-      <div className="relative h-8 w-8">
-         <Image 
-            src="/logo.png" 
-            alt="PD Logo" 
-            fill 
-            className="object-contain invert" 
-            sizes="32px"
-         />
+      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-cyan-400 to-violet-500 text-sm font-bold text-white">
+        P
       </div>
       <span className="font-bold text-white text-lg tracking-wider">Pranav Dabhi</span>
     </Link>

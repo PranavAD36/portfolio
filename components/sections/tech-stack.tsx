@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { IconCloud } from "@/components/ui/icon-cloud";
 import { LightRays } from "@/components/ui/light-rays"; 
@@ -56,14 +55,8 @@ export default function TechStack() {
             <div 
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 h-20 w-20 md:h-28 md:w-28 rounded-full flex items-center justify-center bg-black/80 border border-white/10 shadow-[0_0_60px_rgba(255,255,255,0.3)] backdrop-blur-md"
             >
-               <div className="relative h-10 w-10 md:h-16 md:w-16 opacity-100">
-                 <Image 
-                   src="/logo.png" 
-                   alt="MM Core" 
-                   fill 
-                   className="object-contain invert"
-                   sizes="(max-width: 768px) 40px, 64px"
-                 />
+               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-cyan-400 to-violet-500 text-lg font-bold text-white md:h-16 md:w-16">
+                 P
                </div>
             </div>
 

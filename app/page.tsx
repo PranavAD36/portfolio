@@ -4,8 +4,6 @@ import FloatingAssistant from "@/components/features/floating-assistant";
 import AboutSection from "@/components/sections/about-section";
 import TechStack from "@/components/sections/tech-stack";
 import ProjectsSection from "@/components/sections/projects-section";
-import CodingStats from "@/components/sections/coding-stats"; 
-import JourneySection from "@/components/sections/journey-section";
 import FooterSection from "@/components/sections/footer-section";
 import Preloader from "@/components/common/preloader";
 import SmoothScroll from "@/components/common/smooth-scroll"; 
@@ -30,8 +28,6 @@ export default function Home() {
       <AboutSection />
       <TechStack />
       <ProjectsSection />
-      <CodingStats /> 
-      <JourneySection />
       <FloatingAssistant /> 
       <FooterSection /> 
           

@@ -28,6 +28,20 @@ export default function HeroSection() {
           HELLO, I AM A
         </motion.span>
 
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="mb-6 flex items-center gap-4"
+        >
+          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-cyan-400 via-sky-500 to-violet-500 text-2xl font-bold text-white shadow-[0_0_45px_rgba(56,189,248,0.35)]">
+            PD
+          </div>
+          <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-cyan-300/80 backdrop-blur-sm">
+            Pranav Dabhi
+          </div>
+        </motion.div>
+
         {/* ✅ FIX: Added '\u00A0' for forced spaces */}
         <ContainerTextFlip
           words={[

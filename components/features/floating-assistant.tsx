@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { Send, X, User, Sparkles, Download, ArrowUp, ScanEye } from "lucide-react"; // ✅ ScanEye Added
 import { cn } from "@/lib/utils";
@@ -42,7 +41,6 @@ export default function FloatingAssistant() {
       const sections = [
         { id: "projects", msg: "Analyzing Missions... Need intel? 📂" },
         { id: "stack", msg: "Scanning Core Systems... ⚡" },
-        { id: "journey", msg: "Accessing Flight Logs... 🚀" }
       ];
 
       let foundSection = false;
@@ -105,7 +103,6 @@ export default function FloatingAssistant() {
         "[NAV_STACK]": "stack",
         "[NAV_ABOUT]": "about",
         "[NAV_CONTACT]": "contact",
-        "[NAV_JOURNEY]": "journey",
     };
 
     const sectionId = sections[tag];
@@ -144,7 +141,7 @@ export default function FloatingAssistant() {
         reply = "Resume is currently under development. It will be available soon.";
       }
 
-      const navTags = ["[NAV_PROJECTS]", "[NAV_STACK]", "[NAV_ABOUT]", "[NAV_CONTACT]", "[NAV_JOURNEY]"];
+      const navTags = ["[NAV_PROJECTS]", "[NAV_STACK]", "[NAV_ABOUT]", "[NAV_CONTACT]"];
       navTags.forEach(tag => {
           if (reply.includes(tag)) {
               handleNavigation(tag);
@@ -240,15 +237,8 @@ export default function FloatingAssistant() {
                     onClick={() => { setIsOpen(true); setShowTooltip(false); }}
                     className="relative w-14 h-14 flex items-center justify-center group pointer-events-auto bg-black/50 rounded-full backdrop-blur-sm border border-cyan-500/50"
                 >
-                    <div className="relative w-10 h-10">
-                        <Image 
-                            src="/ai-robot.png"
-                            alt="AI Assistant"
-                            fill
-                            priority
-                            sizes="40px"
-                            className="object-contain drop-shadow-[0_0_10px_rgba(34,211,238,0.8)]"
-                        />
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full border border-cyan-400/40 bg-gradient-to-br from-cyan-500/30 to-violet-500/20 text-lg font-bold text-cyan-200 shadow-[0_0_12px_rgba(34,211,238,0.4)]">
+                        P
                     </div>
                     
                     {/* Status Indicator */}
@@ -276,8 +266,8 @@ export default function FloatingAssistant() {
           >
             <div className="flex items-center justify-between p-4 border-b border-white/10 bg-gradient-to-r from-cyan-900/40 to-transparent">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg overflow-hidden relative">
-                    <Image src="/ai-robot.png" alt="Nebula" fill className="object-cover" sizes="40px" />
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 text-sm font-bold text-white shadow-lg">
+                    P
                 </div>
                 <div>
                     <h3 className="font-bold text-white tracking-wider font-space-grotesk text-lg">N.E.B.U.L.A</h3>
@@ -307,7 +297,7 @@ export default function FloatingAssistant() {
                     msg.role === "ai" ? "bg-cyan-900/50 border border-cyan-500/30" : "bg-white/10 text-white"
                   )}>
                     {msg.role === "ai" ? (
-                        <Image src="/ai-robot.png" alt="AI" fill className="object-cover" sizes="32px" />
+                        <span className="text-[11px] font-bold">P</span>
                     ) : (
                         <User size={14} />
                     )}

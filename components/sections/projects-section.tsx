@@ -1,48 +1,34 @@
 "use client";
 import React from "react";
-import Image from "next/image"; 
 import { PinContainer } from "@/components/ui/3d-pin";
 import { ExternalLink, Github } from "lucide-react";
 import RetroGrid from "@/components/ui/retro-grid";
 
-// ✅ Project Data for Clean Mapping
 const projects = [
   {
     title: "Project 1",
     name: "Project 1",
     desc: "Short placeholder description.",
-    tech: "Tech Stack placeholder",
-    img: "/space-bg.png",
+    tech: "Technology placeholder",
     live: "#",
-    code: "#"
+    code: "#",
   },
   {
     title: "Project 2",
     name: "Project 2",
     desc: "Short placeholder description.",
-    tech: "Tech Stack placeholder",
-    img: "/space-bg.png",
+    tech: "Technology placeholder",
     live: "#",
-    code: "#"
+    code: "#",
   },
   {
     title: "Project 3",
     name: "Project 3",
     desc: "Short placeholder description.",
-    tech: "Tech Stack placeholder",
-    img: "/space-bg.png",
+    tech: "Technology placeholder",
     live: "#",
-    code: "#"
+    code: "#",
   },
-  {
-    title: "Project 4",
-    name: "Project 4",
-    desc: "Short placeholder description.",
-    tech: "Tech Stack placeholder",
-    img: "/space-bg.png",
-    live: "#",
-    code: "#"
-  }
 ];
 
 export default function ProjectsSection() {
@@ -78,15 +64,11 @@ export default function ProjectsSection() {
                 <div className="text-sm font-normal text-slate-400 line-clamp-2 mb-4">
                     {project.desc}
                 </div>
-                {/* Image Area */}
-                <div className="relative w-full h-48 rounded-lg overflow-hidden bg-black/50 border border-white/10 mb-4">
-                    <Image 
-                        src={project.img} 
-                        alt={project.name}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                    />
+                <div className="relative flex h-48 w-full items-center justify-center overflow-hidden rounded-lg border border-white/10 bg-gradient-to-br from-cyan-500/20 via-slate-900 to-violet-500/20 mb-4">
+                    <div className="text-center">
+                        <p className="text-xs uppercase tracking-[0.3em] text-cyan-300/80">Project Image</p>
+                        <p className="mt-2 text-lg font-semibold text-white">Coming Soon</p>
+                    </div>
                 </div>
                 {/* Buttons */}
                 <div className="flex gap-3 w-full">
@@ -114,14 +96,11 @@ export default function ProjectsSection() {
                     <p className="mt-3 text-[11px] uppercase tracking-[0.28em] text-cyan-400 font-mono">
                       {project.tech}
                     </p>
-                    <div className="relative flex flex-1 w-full rounded-lg mt-4 overflow-hidden bg-black/50 border border-white/10">
-                        <Image 
-                            src={project.img} 
-                            alt={project.name}
-                            fill
-                            className="object-cover hover:scale-105 transition-transform duration-500"
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        />
+                    <div className="relative mt-4 flex flex-1 w-full items-center justify-center overflow-hidden rounded-lg border border-white/10 bg-gradient-to-br from-cyan-500/20 via-slate-900 to-violet-500/20">
+                        <div className="text-center px-4">
+                            <p className="text-[11px] uppercase tracking-[0.35em] text-cyan-300/80">Project Image</p>
+                            <p className="mt-2 text-lg font-semibold text-white">Coming Soon</p>
+                        </div>
                     </div>
                     <div className="flex gap-3 mt-4 w-full">
                         <a href={project.live} target="_blank" rel="noopener noreferrer" 

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { Unlock, Cpu, Code, GraduationCap, Globe, Trophy, Github, Linkedin, Twitter, Lock } from "lucide-react";
+import { Unlock, Cpu, Code, GraduationCap, Globe, Trophy, Github, Linkedin, Mail, Lock } from "lucide-react";
 
 export default function AboutSection() {
   const [isUnlocked, setIsUnlocked] = useState(false);
@@ -147,7 +147,8 @@ export default function AboutSection() {
                             <div className="flex gap-2">
                                 <SocialLink href="https://github.com/PranavAD36" icon={<Github size={18} />} />
                                 <SocialLink href="https://www.linkedin.com/in/dabhi-pranav-129b05331" icon={<Linkedin size={18} />} />
-                                <SocialLink href="#" icon={<Twitter size={18} />} />
+                                <SocialLink href="mailto:pranav.dabhi9969@gmail.com" icon={<Mail size={18} />} />
+                                <SocialLink href="https://leetcode.com/u/tFt4QC7qdx/" icon={<span className="text-[10px] font-bold">LC</span>} />
                             </div>
                         </div>
                     </div>

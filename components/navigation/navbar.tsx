@@ -33,7 +33,6 @@ export default function Navbar() {
     { name: "About", link: "#about" },       // About Section
     { name: "Tech Stack", link: "#stack" },  // Tech Stack Section
     { name: "Projects", link: "#projects" }, // Projects Section
-    { name: "Timeline", link: "#journey" },   // Journey Section
     { name: "Resume", link: "#", onClick: handleResumeClick },
     { name: "Contact Me", link: "#contact" }, // Contact Section
   ];
