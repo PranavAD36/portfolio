@@ -120,9 +120,9 @@ export const NavbarLogo = () => {
       className="relative z-20 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-white"
     >
       <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-cyan-400 to-violet-500 text-sm font-bold text-white">
-        PD
+        P
       </div>
-      <span className="font-bold text-white text-lg tracking-wider">Pranav Dabhi</span>
+      <span className="font-bold text-white text-lg tracking-wider">YOUR NAME</span>
     </Link>
   );
 };

@@ -5,7 +5,7 @@ import "./globals.css";
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://my-portfolio-opal-tau-85.vercel.app"),
+  metadataBase: new URL("https://example.com"),
 
   title: "Portfolio | Full Stack Developer",
   description: "A polished portfolio experience built with modern web technologies.",

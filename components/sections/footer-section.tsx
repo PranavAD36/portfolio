@@ -49,10 +49,10 @@ export default function FooterSection() {
 
   const links = [
     { title: "Home", icon: <IconHome className="h-full w-full text-neutral-300" />, href: "#" },
-    { title: "LinkedIn", icon: <IconBrandLinkedin className="h-full w-full text-blue-400" />, href: "https://linkedin.com" },
-    { title: "GitHub", icon: <IconBrandGithub className="h-full w-full text-white" />, href: "https://github.com" },
-    { title: "Email", icon: <IconMail className="h-full w-full text-green-400" />, href: "mailto:hello@example.com" },
-    { title: "LeetCode", icon: <span className="flex h-full w-full items-center justify-center text-[11px] font-bold text-orange-400">LC</span>, href: "https://leetcode.com" },
+    { title: "LinkedIn", icon: <IconBrandLinkedin className="h-full w-full text-blue-400" />, href: "#" },
+    { title: "GitHub", icon: <IconBrandGithub className="h-full w-full text-white" />, href: "#" },
+    { title: "Email", icon: <IconMail className="h-full w-full text-green-400" />, href: "mailto:your@email.com" },
+    { title: "LeetCode", icon: <span className="flex h-full w-full items-center justify-center text-[11px] font-bold text-orange-400">LC</span>, href: "#" },
     { title: "Resume", icon: <IconFileText className="h-full w-full text-yellow-400" />, href: "#" },
   ];
 

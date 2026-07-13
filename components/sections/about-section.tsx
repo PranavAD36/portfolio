@@ -137,10 +137,10 @@ export default function AboutSection() {
                         <div className="flex items-center justify-between gap-2 p-4 rounded-xl bg-white/5 border border-white/5">
                             <span className="text-gray-400 text-sm font-bold ml-1">Connect:</span>
                             <div className="flex gap-2">
-                                <SocialLink href="https://github.com" icon={<Github size={18} />} />
-                                <SocialLink href="https://linkedin.com" icon={<Linkedin size={18} />} />
-                                <SocialLink href="mailto:hello@example.com" icon={<Mail size={18} />} />
-                                <SocialLink href="https://leetcode.com" icon={<span className="text-[10px] font-bold">LC</span>} />
+                                <SocialLink href="#" icon={<Github size={18} />} />
+                                <SocialLink href="#" icon={<Linkedin size={18} />} />
+                                <SocialLink href="mailto:your@email.com" icon={<Mail size={18} />} />
+                                <SocialLink href="#" icon={<span className="text-[10px] font-bold">LC</span>} />
                             </div>
                         </div>
                     </div>
