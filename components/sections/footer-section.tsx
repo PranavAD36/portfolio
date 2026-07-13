@@ -49,10 +49,10 @@ export default function FooterSection() {
 
   const links = [
     { title: "Home", icon: <IconHome className="h-full w-full text-neutral-300" />, href: "#" },
-    { title: "LinkedIn", icon: <IconBrandLinkedin className="h-full w-full text-blue-400" />, href: "https://www.linkedin.com/in/dabhi-pranav-129b05331" },
-    { title: "GitHub", icon: <IconBrandGithub className="h-full w-full text-white" />, href: "https://github.com/PranavAD36" },
-    { title: "Email", icon: <IconMail className="h-full w-full text-green-400" />, href: "mailto:pranav.dabhi9969@gmail.com" },
-    { title: "LeetCode", icon: <span className="flex h-full w-full items-center justify-center text-[11px] font-bold text-orange-400">LC</span>, href: "https://leetcode.com/u/tFt4QC7qdx/" },
+    { title: "LinkedIn", icon: <IconBrandLinkedin className="h-full w-full text-blue-400" />, href: "https://linkedin.com" },
+    { title: "GitHub", icon: <IconBrandGithub className="h-full w-full text-white" />, href: "https://github.com" },
+    { title: "Email", icon: <IconMail className="h-full w-full text-green-400" />, href: "mailto:hello@example.com" },
+    { title: "LeetCode", icon: <span className="flex h-full w-full items-center justify-center text-[11px] font-bold text-orange-400">LC</span>, href: "https://leetcode.com" },
     { title: "Resume", icon: <IconFileText className="h-full w-full text-yellow-400" />, href: "#" },
   ];
 
@@ -164,7 +164,7 @@ export default function FooterSection() {
                     P
                 </div>
                 <div className="flex flex-col">
-                    <p className="tracking-widest text-gray-400">© {currentYear} PRANAV DABHI</p>
+                    <p className="tracking-widest text-gray-400">© {currentYear} YOUR NAME</p>
                     <p className="text-[10px] text-gray-600">SYSTEM STATUS: ONLINE</p>
                 </div>
             </div>

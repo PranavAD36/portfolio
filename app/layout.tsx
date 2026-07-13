@@ -7,24 +7,24 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL("https://my-portfolio-opal-tau-85.vercel.app"),
 
-  title: "Pranav Dabhi | Full Stack Developer",
-  description: "Portfolio of Pranav Dabhi, a B.Tech Computer Engineering student and software developer.",
+  title: "Portfolio | Full Stack Developer",
+  description: "A polished portfolio experience built with modern web technologies.",
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
     apple: "/favicon.ico",
   },
   openGraph: {
-    title: "Pranav Dabhi | The Portfolio",
-    description: "Portfolio of Pranav Dabhi, Full Stack Developer.",
+    title: "Portfolio | Full Stack Developer",
+    description: "A polished portfolio experience built with modern web technologies.",
     url: "/",
-    siteName: "Pranav Dabhi Portfolio",
+    siteName: "Portfolio",
     images: [
       {
         url: "/favicon.ico",
         width: 1200,
         height: 630,
-        alt: "Pranav Dabhi",
+        alt: "Portfolio preview",
       },
     ],
     locale: "en_US",

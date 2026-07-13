@@ -44,14 +44,6 @@ export default function Navbar() {
       <NavBody>
         <NavbarLogo />
         <NavItems items={navItems} />
-        {/* Highlighted Blog Button */}
-        <NavbarButton 
-          href="/blog" 
-          variant="primary" 
-          className="px-6 py-2.5 text-xs md:text-sm font-extrabold tracking-widest uppercase hover:scale-105 active:scale-95 transition-all"
-        >
-          My Blog&apos;s
-        </NavbarButton>
       </NavBody>
 
       <AnimatePresence>
@@ -104,13 +96,6 @@ export default function Navbar() {
               {item.name}
             </Link>
           ))}
-          {/* Highlighted Mobile Blog Button */}
-          <NavbarButton 
-            href="/blog" 
-            className="w-full mt-4 py-3 text-sm font-extrabold tracking-widest uppercase"
-          >
-            My Blog&apos;s
-          </NavbarButton>
         </MobileNavMenu>
       </MobileNav>
       

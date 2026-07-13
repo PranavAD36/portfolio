@@ -17,7 +17,7 @@ export default function FloatingAssistant() {
   const [messages, setMessages] = useState<Message[]>([
     { 
       role: "ai", 
-      text: "System Online. 🌌 I am N.E.B.U.L.A. (Navigation Entity Built for User Links & Answers). \n\nI can pilot you to Pranav's Projects, Skills, or Contact. Where shall we fly? 🚀" 
+      text: "System Online. 🌌 I am your portfolio assistant. I can guide you through featured work, skills, or contact details. Where shall we begin? 🚀" 
     }
   ]);
   
@@ -163,7 +163,7 @@ export default function FloatingAssistant() {
     }
   };
 
-  const suggestions = ["Take me to Projects", "Show Skills", "Tell me about Pranav", "Tell a Joke"];
+  const suggestions = ["Take me to Projects", "Show Skills", "Tell me about this work", "Tell a Joke"];
 
   return (
     <>
@@ -270,7 +270,7 @@ export default function FloatingAssistant() {
                     P
                 </div>
                 <div>
-                    <h3 className="font-bold text-white tracking-wider font-space-grotesk text-lg">N.E.B.U.L.A</h3>
+                    <h3 className="font-bold text-white tracking-wider font-space-grotesk text-lg">PORTFOLIO ASSISTANT</h3>
                     <p className="text-[10px] text-cyan-400 font-mono flex items-center gap-1">
                         <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"/> ONLINE
                     </p>

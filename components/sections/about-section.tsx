@@ -45,17 +45,9 @@ export default function AboutSection() {
         className="w-full min-h-screen relative flex items-center justify-center overflow-hidden bg-black"
     >
       
-      {/* 🎬 BACKGROUND VIDEO */}
+      {/* 🎬 BACKGROUND EFFECT */}
       <div className="absolute inset-0 z-0">
-         <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover opacity-50" 
-         >
-            <source src="/encryption.webm" type="video/webm" />
-         </video>
+         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.18),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.18),transparent_35%)]" />
          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black" />
          <div className="absolute inset-0 bg-black/60" /> 
       </div>
@@ -109,7 +101,7 @@ export default function AboutSection() {
                     {/* Header */}
                     <div className="flex flex-col gap-6 border-b border-white/10 pb-6 mb-6 md:flex-row md:items-center md:justify-between">
                         <div>
-                            <h3 className="text-3xl md:text-4xl font-bold text-white tracking-wide font-space-grotesk">PRANAV DABHI</h3>
+                            <h3 className="text-3xl md:text-4xl font-bold text-white tracking-wide font-space-grotesk">YOUR NAME</h3>
                             <p className="text-cyan-400 font-mono text-xs md:text-sm flex items-center gap-2 mt-2">
                                 <span className="relative flex h-2 w-2">
                                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -128,9 +120,9 @@ export default function AboutSection() {
 
                     {/* Summary */}
                     <div className="mb-8 text-gray-300 text-sm leading-relaxed md:text-base">
-                      Hi, I'm Pranav Dabhi, a B.Tech Computer Engineering student currently in my 3rd year.
-                      I enjoy building modern web applications and solving real-world problems through clean code and intuitive design.
-                      I am focused on learning and shipping practical software solutions.
+                      Hi, I&apos;m building a polished portfolio that highlights my best work, skills, and ideas.
+                      This section can be updated with a short bio, experience, and the details that matter most to your audience.
+                      The layout and motion stay intact while the story becomes fully yours.
                     </div>
 
                     {/* Grid Content */}
@@ -145,10 +137,10 @@ export default function AboutSection() {
                         <div className="flex items-center justify-between gap-2 p-4 rounded-xl bg-white/5 border border-white/5">
                             <span className="text-gray-400 text-sm font-bold ml-1">Connect:</span>
                             <div className="flex gap-2">
-                                <SocialLink href="https://github.com/PranavAD36" icon={<Github size={18} />} />
-                                <SocialLink href="https://www.linkedin.com/in/dabhi-pranav-129b05331" icon={<Linkedin size={18} />} />
-                                <SocialLink href="mailto:pranav.dabhi9969@gmail.com" icon={<Mail size={18} />} />
-                                <SocialLink href="https://leetcode.com/u/tFt4QC7qdx/" icon={<span className="text-[10px] font-bold">LC</span>} />
+                                <SocialLink href="https://github.com" icon={<Github size={18} />} />
+                                <SocialLink href="https://linkedin.com" icon={<Linkedin size={18} />} />
+                                <SocialLink href="mailto:hello@example.com" icon={<Mail size={18} />} />
+                                <SocialLink href="https://leetcode.com" icon={<span className="text-[10px] font-bold">LC</span>} />
                             </div>
                         </div>
                     </div>
