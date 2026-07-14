@@ -14,18 +14,39 @@ export default function FooterSection() {
 
   const currentYear = new Date().getFullYear();
 
+  // Web3Forms configuration
+  // ✅ Set your Web3Forms Access Key in a local env file: .env.local
+  // Add this line to .env.local (do NOT commit this file):
+  // NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your_real_web3forms_access_key_here
+  const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const formData = new FormData(e.currentTarget);
-    // ⚠️ IMPORTANT: Replace 'YOUR_WEB3FORMS_KEY' with your Web3Forms Access Key from: https://web3forms.com
-    formData.append("access_key", "YOUR_WEB3FORMS_KEY");
+    const form = e.currentTarget as HTMLFormElement;
+    const fd = new FormData(form);
+
+    // Attach the access key from the environment. Do NOT hardcode your key here.
+    if (WEB3FORMS_ACCESS_KEY) {
+      fd.set("access_key", WEB3FORMS_ACCESS_KEY);
+    } else {
+      // Helpful console message for local setup
+      // Once you add NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY to .env.local and restart the dev server,
+      // submissions will include the proper access key.
+      // Note: Web3Forms also allows configuring the recipient email on their dashboard.
+      console.warn("Web3Forms access key not set. Add NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY to .env.local");
+    }
+
+    // Ensure messages are delivered to the correct recipient by adding a 'to' field and a clear subject
+    const subjectEl = (form.elements.namedItem("subject") as HTMLSelectElement | null)?.value || "General";
+    fd.set("subject", `Portfolio Contact - ${subjectEl}`);
+    fd.set("to", "pranav.dabhi9969@gmail.com");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: formData
+        body: fd
       });
 
       const data = await response.json();
@@ -124,7 +145,7 @@ export default function FooterSection() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="space-y-2">
                                 <label className="text-xs font-mono text-gray-400 ml-1">YOUR NAME</label>
-                                <input type="text" name="name" required placeholder="Pranav or your name" className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors" />
+                                <input type="text" name="name" required placeholder="Enter your full name" className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors" />
                             </div>
                             <div className="space-y-2">
                                 <label className="text-xs font-mono text-gray-400 ml-1">YOUR EMAIL</label>
