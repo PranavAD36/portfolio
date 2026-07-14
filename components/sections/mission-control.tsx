@@ -82,23 +82,23 @@ const LeetCodeCard = () => {
       className="group relative"
     >
       <Link href={data.profileUrl} target="_blank" rel="noopener noreferrer">
-        <div className="p-8 md:p-10 rounded-2xl backdrop-blur-md border border-white/10 hover:border-orange-400/50 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/0 overflow-hidden cursor-pointer">
+        <div className="p-6 sm:p-8 lg:p-10 rounded-2xl backdrop-blur-md border border-white/10 hover:border-orange-400/50 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/0 overflow-hidden cursor-pointer h-full flex flex-col">
           {/* Background gradient on hover */}
           <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
           {/* Content */}
-          <div className="relative z-10">
+          <div className="relative z-10 flex flex-col h-full">
             {/* Header */}
-            <div className="mb-8">
+            <div className="mb-6">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">LeetCode Stats</h3>
               <div className="h-1 w-16 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full" />
             </div>
 
             {/* Circular Ring Style - Streak at top */}
-            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 flex-1">
               {/* Circular ring visualization */}
-              <div className="flex-1 flex justify-center">
-                <div className="relative w-40 h-40 md:w-48 md:h-48">
+              <div className="flex-shrink-0 flex justify-center">
+                <div className="relative w-36 h-36 sm:w-40 sm:h-40 md:w-44 md:h-44">
                   {/* Circular progress ring */}
                   <svg className="w-full h-full transform -rotate-90" viewBox="0 0 200 200">
                     <defs>
@@ -135,7 +135,7 @@ const LeetCodeCard = () => {
               </div>
 
               {/* Stats Grid */}
-              <div className="w-full max-w-[360px] flex flex-col gap-3">
+              <div className="w-full max-w-[320px] md:max-w-[360px] flex flex-col gap-3 flex-1">
                 {/* Streak Badge - Full Width */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
@@ -232,42 +232,46 @@ const GitHubCard = () => {
       className="group relative"
     >
       <Link href={data.profileUrl} target="_blank" rel="noopener noreferrer">
-        <div className="p-8 md:p-10 rounded-2xl backdrop-blur-md border border-white/10 hover:border-cyan-400/50 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/0 overflow-hidden cursor-pointer">
+        <div className="p-6 sm:p-8 lg:p-10 rounded-2xl backdrop-blur-md border border-white/10 hover:border-cyan-400/50 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/0 overflow-hidden cursor-pointer h-full flex flex-col">
           {/* Background gradient on hover */}
           <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
           {/* Content */}
-          <div className="relative z-10">
+          <div className="relative z-10 flex flex-col h-full">
             {/* Header */}
-            <div className="mb-6">
+            <div className="mb-5">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">GitHub Contributions</h3>
               <div className="h-1 w-16 bg-gradient-to-r from-cyan-400 to-cyan-600 rounded-full" />
             </div>
 
             {/* Graph */}
-            <div className="overflow-x-auto pb-4">
-              <img
-                src={data.graphUrl}
-                alt="GitHub Contribution Graph"
-                className="w-full rounded-lg bg-white/5 p-2"
-                onError={(e) => {
-                  const img = e.target as HTMLImageElement;
-                  img.style.display = "none";
-                  const parent = img.parentElement;
-                  if (parent) {
-                    parent.innerHTML =
-                      '<div class="text-center text-gray-400 py-12">Contribution graph temporarily unavailable</div>';
-                  }
-                }}
-              />
+            <div className="flex-1 flex items-center justify-center rounded-xl bg-white/5 p-3 sm:p-4">
+              <div className="w-full max-w-[720px] overflow-hidden rounded-lg">
+                <img
+                  src={data.graphUrl}
+                  alt="GitHub Contribution Graph"
+                  className="w-full h-auto object-contain rounded-lg"
+                  onError={(e) => {
+                    const img = e.target as HTMLImageElement;
+                    img.style.display = "none";
+                    const parent = img.parentElement;
+                    if (parent) {
+                      parent.innerHTML =
+                        '<div class="text-center text-gray-400 py-16">Contribution graph temporarily unavailable</div>';
+                    }
+                  }}
+                />
+              </div>
             </div>
 
             {/* Profile Link */}
-            <div className="mt-6 pt-4 border-t border-white/10">
-              <p className="text-xs text-gray-400 uppercase tracking-widest mb-2">Profile</p>
-              <p className="text-white font-mono text-sm hover:text-cyan-400 transition-colors">
-                github.com/{data.username}
-              </p>
+            <div className="mt-5 pt-4 border-t border-white/10 flex items-center justify-center text-center">
+              <div>
+                <p className="text-xs text-gray-400 uppercase tracking-widest mb-2">Profile</p>
+                <p className="text-white font-mono text-sm hover:text-cyan-400 transition-colors">
+                  github.com/{data.username}
+                </p>
+              </div>
             </div>
           </div>
         </div>

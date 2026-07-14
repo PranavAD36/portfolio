@@ -30,6 +30,7 @@
 - Uses GitHub’s public contribution page HTML, parsed server-side.
 - No fake or random contribution values are generated.
 - No tokens are exposed to the frontend.
+- The card UI uses a larger graph area and tighter spacing for a more premium layout.
 
 ---
 
