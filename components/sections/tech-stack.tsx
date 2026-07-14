@@ -11,11 +11,11 @@ const slugs = [
   
   // Databases (New Additions Included) 🗄️
   "postgresql","supabase", "mongodb", "mysql", "php",
-  "seaborn", "langchain", "huggingface",
+  "redis", "langchain", "huggingface",
 
   // AI / ML / Data Science (New Additions Included) 🤖
-  "python", "tensorflow", "scikit-learn", "pandas", "numpy", 
-  "jupyter", "matplotlib",
+  "python", "tensorflow", "scikitlearn", "pandas", "numpy", 
+  "jupyter", "plotly",
 
   // Cloud (New Additions Included) ☁️
   "googlecloud", "amazonwebservices", // AWS
