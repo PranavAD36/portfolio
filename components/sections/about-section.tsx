@@ -140,7 +140,7 @@ export default function AboutSection() {
                                 <SocialLink href="https://github.com/PranavAD36" icon={<Github size={18} />} />
                                 <SocialLink href="https://www.linkedin.com/in/dabhi-pranav-129b05331" icon={<Linkedin size={18} />} />
                                 <SocialLink href="mailto:pranav.dabhi9969@gmail.com" icon={<Mail size={18} />} />
-                                <SocialLink href="#" icon={<span className="text-[10px] font-bold">LC</span>} />
+                                <SocialLink href="https://leetcode.com/u/tFt4QC7qdx/" icon={<span className="text-[10px] font-bold">LC</span>} />
                             </div>
                         </div>
                     </div>

@@ -87,7 +87,7 @@ export default function FooterSection() {
     { title: "GitHub", icon: <IconBrandGithub className="h-full w-full text-white" />, href: "https://github.com/PranavAD36" },
     { title: "Email", icon: <IconMail className="h-full w-full text-green-400" />, href: "mailto:pranav.dabhi9969@gmail.com" },
     { title: "Phone", icon: <IconPhone className="h-full w-full text-purple-400" />, href: "tel:+919737286699" },
-    { title: "LeetCode", icon: <span className="flex h-full w-full items-center justify-center text-[11px] font-bold text-orange-400">LC</span>, href: "#" },
+    { title: "LeetCode", icon: <span className="flex h-full w-full items-center justify-center text-[11px] font-bold text-orange-400">LC</span>, href: "https://leetcode.com/u/tFt4QC7qdx/" },
   ];
 
   return (
