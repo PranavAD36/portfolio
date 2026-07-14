@@ -10,9 +10,9 @@ export const metadata: Metadata = {
   title: "Portfolio | Full Stack Developer",
   description: "A polished portfolio experience built with modern web technologies.",
   icons: {
-    icon: "/icon.svg",
-    shortcut: "/icon.svg",
-    apple: "/icon.svg",
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
   },
   openGraph: {
     title: "Portfolio | Full Stack Developer",
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
     siteName: "Portfolio",
     images: [
       {
-        url: "/icon.svg",
-        width: 1200,
-        height: 630,
+        url: "/icon.png",
+        width: 192,
+        height: 192,
         alt: "Portfolio preview",
       },
     ],
