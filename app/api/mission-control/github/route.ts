@@ -43,7 +43,7 @@ export async function GET() {
     }
 
     const totalContributions = parseContributionTotal(html);
-    const svgGraph = generateContributionSVG(cells, totalContributions);
+    const svgGraph = generateContributionSVG(cells, totalContributions, html);
     const svgDataUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svgGraph)}`;
 
     return NextResponse.json({
@@ -75,14 +75,13 @@ function parseContributionTotal(html: string): number {
   return match ? Number(match[1]) : 0;
 }
 
-function generateContributionSVG(cells: ContributionCell[], totalContributions: number): string {
+function generateContributionSVG(cells: ContributionCell[], totalContributions: number, html: string): string {
   const width = 900;
   const height = 220;
   const cellSize = 12;
   const cellGap = 3;
   const startX = 40;
   const startY = 45;
-  const weeks = Math.max(52, Math.ceil(cells.length / 7));
 
   const colors = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"];
 
@@ -96,6 +95,11 @@ function generateContributionSVG(cells: ContributionCell[], totalContributions: 
   <text x="${startX}" y="24" fill="#8b949e" font-size="12" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">${totalContributions} contributions in the last year</text>
   <text x="${startX}" y="${startY - 12}" fill="#c9d1d9" font-size="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">GitHub contribution activity</text>
 `;
+
+  const monthLabels = getMonthLabels(html, cells, startX, cellSize, cellGap);
+  monthLabels.forEach(({ label, x }) => {
+    svg += `  <text x="${x}" y="16" fill="#8b949e" font-size="10" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">${label}</text>\n`;
+  });
 
   for (let index = 0; index < cells.length; index += 1) {
     const week = Math.floor(index / 7);
@@ -119,4 +123,79 @@ function generateContributionSVG(cells: ContributionCell[], totalContributions: 
   svg += `</svg>`;
 
   return svg;
+}
+
+function getMonthLabels(html: string, cells: ContributionCell[], startX: number, cellSize: number, cellGap: number) {
+  const today = new Date();
+  const currentMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+  const startDate = cells[0] ? new Date(`${cells[0].date}T00:00:00`) : new Date();
+
+  const explicitLabels = extractMonthLabelsFromHtml(html);
+  const labelsToUse = explicitLabels.length > 0 ? explicitLabels : buildDynamicMonthLabels(startDate, currentMonth);
+
+  const monthLabels: Array<{ label: string; x: number }> = [];
+  let cursor = new Date(startDate.getFullYear(), startDate.getMonth(), 1);
+
+  for (let index = 0; index < labelsToUse.length; index += 1) {
+    if (cursor > currentMonth) break;
+
+    const firstCellIndex = cells.findIndex((cell) => {
+      const cellDate = new Date(`${cell.date}T00:00:00`);
+      return cellDate.getFullYear() === cursor.getFullYear() && cellDate.getMonth() === cursor.getMonth();
+    });
+
+    if (firstCellIndex >= 0) {
+      const week = Math.floor(firstCellIndex / 7);
+      monthLabels.push({
+        label: labelsToUse[index],
+        x: startX + week * (cellSize + cellGap)
+      });
+    }
+
+    cursor.setMonth(cursor.getMonth() + 1);
+  }
+
+  return monthLabels;
+}
+
+function buildDynamicMonthLabels(startDate: Date, currentMonth: Date): string[] {
+  const labels: string[] = [];
+  const cursor = new Date(startDate.getFullYear(), startDate.getMonth(), 1);
+
+  while (cursor <= currentMonth) {
+    labels.push(cursor.toLocaleString("en-US", { month: "short" }));
+    cursor.setMonth(cursor.getMonth() + 1);
+  }
+
+  return labels;
+}
+
+function extractMonthLabelsFromHtml(html: string): string[] {
+  const monthMatches = Array.from(
+    html.matchAll(/\b(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\b/gi)
+  );
+
+  const labels = monthMatches.map((match) => normalizeMonthLabel(match[1]));
+  const uniqueLabels = labels.filter((label, index) => labels.indexOf(label) === index);
+
+  return uniqueLabels;
+}
+
+function normalizeMonthLabel(month: string): string {
+  const normalized = month.toLowerCase();
+
+  if (normalized.startsWith("jan")) return "Jan";
+  if (normalized.startsWith("feb")) return "Feb";
+  if (normalized.startsWith("mar")) return "Mar";
+  if (normalized.startsWith("apr")) return "Apr";
+  if (normalized.startsWith("may")) return "May";
+  if (normalized.startsWith("jun")) return "Jun";
+  if (normalized.startsWith("jul")) return "Jul";
+  if (normalized.startsWith("aug")) return "Aug";
+  if (normalized.startsWith("sep")) return "Sep";
+  if (normalized.startsWith("oct")) return "Oct";
+  if (normalized.startsWith("nov")) return "Nov";
+  if (normalized.startsWith("dec")) return "Dec";
+
+  return month;
 }
