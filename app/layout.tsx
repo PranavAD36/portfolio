@@ -7,7 +7,7 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL("https://example.com"),
 
-  title: "Portfolio | Full Stack Developer",
+  title: "PranavDabhi",
   description: "A polished portfolio experience built with modern web technologies.",
   icons: {
     icon: "/icon.png",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     apple: "/icon.png",
   },
   openGraph: {
-    title: "Portfolio | Full Stack Developer",
+    title: "PranavDabhi",
     description: "A polished portfolio experience built with modern web technologies.",
     url: "/",
     siteName: "Portfolio",

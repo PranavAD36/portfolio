@@ -144,7 +144,7 @@ export default function FooterSection() {
                     >
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="space-y-2">
-                                <label className="text-xs font-mono text-gray-400 ml-1">YOUR NAME</label>
+                                <label className="text-xs font-mono text-gray-400 ml-1">Your Name</label>
                                 <input type="text" name="name" required placeholder="Enter your full name" className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors" />
                             </div>
                             <div className="space-y-2">
