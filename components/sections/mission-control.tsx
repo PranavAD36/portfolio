@@ -135,14 +135,14 @@ const LeetCodeCard = () => {
               </div>
 
               {/* Stats Grid */}
-              <div className="flex-1 grid grid-cols-2 gap-4">
-                {/* Streak Badge */}
+              <div className="flex-1 grid grid-cols-3 md:grid-cols-3 gap-3">
+                {/* Streak Badge - Full Width */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0 }}
-                  className="col-span-2 p-4 rounded-xl bg-orange-500/20 border border-orange-400/50 text-center group/badge hover:bg-orange-500/30 hover:border-orange-400/80 transition-all"
+                  className="col-span-3 p-4 rounded-xl bg-orange-500/20 border border-orange-400/50 text-center group/badge hover:bg-orange-500/30 hover:border-orange-400/80 transition-all"
                 >
                   <div className="text-xs text-orange-300 uppercase tracking-widest mb-1">Current Streak</div>
                   <div className="text-3xl font-bold text-orange-400 font-mono">{data.streak} 🔥</div>
