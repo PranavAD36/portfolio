@@ -8,7 +8,7 @@
 
 ## **1. FILES MODIFIED**
 
-> The GitHub contribution card now uses real contribution data from GitHub’s public profile page, and both Mission Control cards have been refined for better balance, spacing, and premium presentation.
+> The GitHub contribution card now uses real contribution data from GitHub’s public profile page, and the card retains its wider, cleaner layout while the graph uses month labels that stop at the current month.
 
 ### **Core Application Files**
 
