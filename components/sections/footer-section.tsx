@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { IconBrandGithub, IconBrandLinkedin, IconHome, IconMail, IconFileText } from "@tabler/icons-react";
+import { IconBrandGithub, IconBrandLinkedin, IconHome, IconMail, IconFileText, IconPhone } from "@tabler/icons-react";
 import { DotPattern } from "@/components/ui/dot-pattern";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import { Send, CheckCircle, Loader2, RotateCcw } from "lucide-react";
@@ -19,7 +19,8 @@ export default function FooterSection() {
     setIsSubmitting(true);
 
     const formData = new FormData(e.currentTarget);
-    formData.append("access_key", "YOUR_ACCESS_KEY_HERE"); // ⚠️ Update Key if needed
+    // ⚠️ IMPORTANT: Replace 'YOUR_WEB3FORMS_KEY' with your Web3Forms Access Key from: https://web3forms.com
+    formData.append("access_key", "YOUR_WEB3FORMS_KEY");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -49,11 +50,11 @@ export default function FooterSection() {
 
   const links = [
     { title: "Home", icon: <IconHome className="h-full w-full text-neutral-300" />, href: "#" },
-    { title: "LinkedIn", icon: <IconBrandLinkedin className="h-full w-full text-blue-400" />, href: "#" },
-    { title: "GitHub", icon: <IconBrandGithub className="h-full w-full text-white" />, href: "#" },
-    { title: "Email", icon: <IconMail className="h-full w-full text-green-400" />, href: "mailto:your@email.com" },
+    { title: "LinkedIn", icon: <IconBrandLinkedin className="h-full w-full text-blue-400" />, href: "https://www.linkedin.com/in/dabhi-pranav-129b05331" },
+    { title: "GitHub", icon: <IconBrandGithub className="h-full w-full text-white" />, href: "https://github.com/PranavAD36" },
+    { title: "Email", icon: <IconMail className="h-full w-full text-green-400" />, href: "mailto:pranav.dabhi9969@gmail.com" },
+    { title: "Phone", icon: <IconPhone className="h-full w-full text-purple-400" />, href: "tel:+919737286699" },
     { title: "LeetCode", icon: <span className="flex h-full w-full items-center justify-center text-[11px] font-bold text-orange-400">LC</span>, href: "#" },
-    { title: "Resume", icon: <IconFileText className="h-full w-full text-yellow-400" />, href: "#" },
   ];
 
   return (
@@ -77,6 +78,9 @@ export default function FooterSection() {
           </h2>
           <p className="text-cyan-500/80 mt-4 text-sm font-mono tracking-widest uppercase">
             [ INITIALIZE CONNECTION ]
+          </p>
+          <p className="text-gray-400 mt-3 text-sm max-w-md mx-auto">
+            Have an idea, project, suggestion, or feedback? I&apos;d love to hear from you. Whether it&apos;s for collaboration, freelance work, or just a message, let&apos;s connect.
           </p>
         </motion.div>
 
@@ -119,17 +123,31 @@ export default function FooterSection() {
                     >
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="space-y-2">
-                                <label className="text-xs font-mono text-gray-400 ml-1">CODENAME</label>
-                                <input type="text" name="name" required placeholder="Enter Name" className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors" />
+                                <label className="text-xs font-mono text-gray-400 ml-1">YOUR NAME</label>
+                                <input type="text" name="name" required placeholder="Pranav or your name" className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors" />
                             </div>
                             <div className="space-y-2">
-                                <label className="text-xs font-mono text-gray-400 ml-1">FREQUENCY (EMAIL)</label>
-                                <input type="email" name="email" required placeholder="Enter Email" className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors" />
+                                <label className="text-xs font-mono text-gray-400 ml-1">YOUR EMAIL</label>
+                                <input type="email" name="email" required placeholder="you@example.com" className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors" />
                             </div>
                         </div>
                         <div className="space-y-2">
-                            <label className="text-xs font-mono text-gray-400 ml-1">TRANSMISSION DATA</label>
-                            <textarea rows={4} name="message" required placeholder="Type your message..." className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors resize-none" />
+                            <label className="text-xs font-mono text-gray-400 ml-1">REASON FOR CONTACT</label>
+                            <select name="subject" required defaultValue="" className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors">
+                                <option value="" disabled>Select a reason...</option>
+                                <option value="Project Discussion">Project Discussion</option>
+                                <option value="Freelance Work">Freelance Work</option>
+                                <option value="Internship Opportunity">Internship Opportunity</option>
+                                <option value="Collaboration">Collaboration</option>
+                                <option value="Suggestion or Feedback">Suggestion or Feedback</option>
+                                <option value="Bug Report">Bug Report</option>
+                                <option value="General Question">General Question</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div className="space-y-2">
+                            <label className="text-xs font-mono text-gray-400 ml-1">YOUR MESSAGE</label>
+                            <textarea rows={4} name="message" required placeholder="Tell me what's on your mind..." className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors resize-none" />
                         </div>
                         
                         <button 
@@ -158,14 +176,29 @@ export default function FooterSection() {
         </div>
 
         {/* Bottom Strip */}
-        <div className="w-full pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-xs font-mono text-gray-500 gap-4">
+        <div className="w-full pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-xs font-mono text-gray-500 gap-6">
             <div className="flex items-center gap-4">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/50 text-sm font-bold text-white shadow-[0_0_15px_rgba(34,211,238,0.1)]">
                     P
                 </div>
                 <div className="flex flex-col">
-                    <p className="tracking-widest text-gray-400">© {currentYear} YOUR NAME</p>
+                    <p className="tracking-widest text-gray-400">© {currentYear} Pranav Dabhi</p>
                     <p className="text-[10px] text-gray-600">SYSTEM STATUS: ONLINE</p>
+                </div>
+            </div>
+
+            <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+                <div className="flex items-center gap-2">
+                    <IconMail size={16} className="text-green-400" />
+                    <a href="mailto:pranav.dabhi9969@gmail.com" className="text-gray-400 hover:text-green-400 transition-colors">
+                        pranav.dabhi9969@gmail.com
+                    </a>
+                </div>
+                <div className="flex items-center gap-2">
+                    <IconPhone size={16} className="text-purple-400" />
+                    <a href="tel:+919737286699" className="text-gray-400 hover:text-purple-400 transition-colors">
+                        +91 9737286699
+                    </a>
                 </div>
             </div>
 

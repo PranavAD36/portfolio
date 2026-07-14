@@ -101,7 +101,7 @@ export default function AboutSection() {
                     {/* Header */}
                     <div className="flex flex-col gap-6 border-b border-white/10 pb-6 mb-6 md:flex-row md:items-center md:justify-between">
                         <div>
-                            <h3 className="text-3xl md:text-4xl font-bold text-white tracking-wide font-space-grotesk">YOUR NAME</h3>
+                            <h3 className="text-3xl md:text-4xl font-bold text-white tracking-wide font-space-grotesk">Pranav Dabhi</h3>
                             <p className="text-cyan-400 font-mono text-xs md:text-sm flex items-center gap-2 mt-2">
                                 <span className="relative flex h-2 w-2">
                                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -137,9 +137,9 @@ export default function AboutSection() {
                         <div className="flex items-center justify-between gap-2 p-4 rounded-xl bg-white/5 border border-white/5">
                             <span className="text-gray-400 text-sm font-bold ml-1">Connect:</span>
                             <div className="flex gap-2">
-                                <SocialLink href="#" icon={<Github size={18} />} />
-                                <SocialLink href="#" icon={<Linkedin size={18} />} />
-                                <SocialLink href="mailto:your@email.com" icon={<Mail size={18} />} />
+                                <SocialLink href="https://github.com/PranavAD36" icon={<Github size={18} />} />
+                                <SocialLink href="https://www.linkedin.com/in/dabhi-pranav-129b05331" icon={<Linkedin size={18} />} />
+                                <SocialLink href="mailto:pranav.dabhi9969@gmail.com" icon={<Mail size={18} />} />
                                 <SocialLink href="#" icon={<span className="text-[10px] font-bold">LC</span>} />
                             </div>
                         </div>
