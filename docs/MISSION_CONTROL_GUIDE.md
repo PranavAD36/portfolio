@@ -10,7 +10,7 @@
 
 The Mission Control section is now a premium, two-part experience:
 
-- The GitHub card keeps its earlier wider contribution graph presentation and balanced profile section, while its month labels stop at the current month for a more realistic calendar view.
+- The GitHub card now shares the same balanced card rhythm as the LeetCode card, with tighter graph spacing and a more consistent profile section, while its month labels stop at the current month for a more realistic calendar view.
 - The LeetCode card now uses cleaner spacing, aligned metrics, and more consistent card proportions.
 
 1. **Projects Section** - Your portfolio projects with enhanced animations

@@ -8,7 +8,7 @@
 
 ## **1. FILES MODIFIED**
 
-> The GitHub contribution card now uses real contribution data from GitHub’s public profile page, and the card retains its earlier wider, cleaner layout while the graph uses month labels that stop at the current month.
+> The GitHub contribution card now uses real contribution data from GitHub’s public profile page, and the card now aligns more closely with the LeetCode card in height, spacing, and visual balance while the graph uses month labels that stop at the current month.
 
 ### **Core Application Files**
 

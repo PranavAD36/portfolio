@@ -10,7 +10,7 @@
 
 Mission Control is now a focused, production-ready section displaying exactly **2 cards**:
 
-> This version uses real GitHub contribution data fetched server-side from GitHub’s public contribution page and real LeetCode data from the public GraphQL endpoint. The GitHub card keeps its earlier wider, cleaner layout while the contribution graph now uses month labels that stop at the current month.
+> This version uses real GitHub contribution data fetched server-side from GitHub’s public contribution page and real LeetCode data from the public GraphQL endpoint. The LeetCode and GitHub cards now share a more balanced layout, matching height and spacing, while the GitHub graph uses month labels that stop at the current month.
 
 1. **LeetCode Stats Card** - Circular progress ring with problem counts and daily streak
 2. **GitHub Contributions Card** - Contribution activity graph
