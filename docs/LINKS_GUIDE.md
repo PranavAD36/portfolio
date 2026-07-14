@@ -6,6 +6,8 @@ Complete inventory of every external link in the portfolio with exact file locat
 
 ## **Social Media Links**
 
+> Mission Control links to the same GitHub and LeetCode profiles for live stats.
+
 ### **GitHub**
 
 - **URL:** `https://github.com/PranavAD36`

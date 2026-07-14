@@ -6,7 +6,34 @@
 
 ## **Available API Routes**
 
-### **1. GitHub Stats** - `GET /api/github-stats`
+### **1. GitHub Mission Control** - `GET /api/mission-control/github`
+
+**Purpose:** Fetch the real GitHub contribution calendar for the Mission Control card.
+
+**File:** `app/api/mission-control/github/route.ts`
+
+**Response:**
+
+```json
+{
+  "username": "PranavAD36",
+  "graphUrl": "data:image/svg+xml;charset=utf-8,...",
+  "profileUrl": "https://github.com/PranavAD36",
+  "name": "Pranav Dabhi",
+  "avatar": "https://avatars.githubusercontent.com/u/229634833?v=4",
+  "contributionsCount": 109
+}
+```
+
+**Notes:**
+
+- Uses GitHub’s public contribution page HTML, parsed server-side.
+- No fake or random contribution values are generated.
+- No tokens are exposed to the frontend.
+
+---
+
+### **2. GitHub Stats** - `GET /api/github-stats`
 
 **Purpose:** Fetch real-time GitHub user statistics
 

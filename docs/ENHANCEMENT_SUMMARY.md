@@ -8,6 +8,8 @@
 
 ## **1. FILES MODIFIED**
 
+> The GitHub contribution card now uses real contribution data from GitHub’s public profile page and the LeetCode stats card remains data-driven and layout-balanced.
+
 ### **Core Application Files**
 
 | File                                       | Changes                                                              | Impact                                                |

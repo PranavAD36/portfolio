@@ -8,6 +8,8 @@ Want to change something on your portfolio? This guide tells you exactly where t
 
 ## **Quick Navigation**
 
+> Mission Control now uses real GitHub and LeetCode data via server-side API routes.
+
 **Choose what you want to edit:**
 
 - [Name & Branding](#name--branding)

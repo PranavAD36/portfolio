@@ -4,6 +4,52 @@ Complete folder tree and file guide for Pranav Dabhi's Portfolio.
 
 ---
 
+## QUICK FILE FINDER
+
+Want to edit Navbar? → components/navigation/
+
+Want to edit Hero Section? → components/sections/hero-section.tsx
+
+Want to edit About? → components/sections/about-section.tsx
+
+Want to edit Mission Control? → components/sections/mission-control.tsx
+
+Want to edit Projects? → components/sections/projects-section.tsx
+
+Want to edit Contact Form? → components/sections/footer-section.tsx
+
+Want to edit Background Animation? → components/background/
+
+Want to edit Space Animation? → components/background/
+
+Want to edit Mobile Navbar? → components/navigation/
+
+Want to edit Desktop Navbar? → components/navigation/
+
+Want to edit Browser Title? → app/layout.tsx
+
+Want to edit SEO? → app/layout.tsx
+
+Want to edit Resume Button? → public/resume.pdf
+
+Want to edit Social Links? → components/sections/about-section.tsx and components/sections/footer-section.tsx
+
+Want to edit LeetCode? → components/sections/mission-control.tsx and app/api/mission-control/leetcode/route.ts
+
+Want to edit GitHub? → components/sections/mission-control.tsx and app/api/mission-control/github/route.ts
+
+Want to edit Web3Forms? → components/sections/footer-section.tsx
+
+Want to edit Email? → components/sections/footer-section.tsx
+
+Want to edit Phone Number? → components/sections/footer-section.tsx
+
+Want to edit Photo? → components/sections/about-section.tsx
+
+Want to edit Favicon? → app/layout.tsx and public/icon.png
+
+---
+
 ## **Root Level Files**
 
 ```

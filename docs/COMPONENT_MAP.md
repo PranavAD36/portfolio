@@ -6,6 +6,8 @@ Detailed guide to every visible section of the portfolio with editing instructio
 
 ## **1. Navbar (Navigation Bar)**
 
+> Mission Control and the contribution graph are now documented separately below.
+
 ### **Component Details**
 
 - **Component Name:** ResizableNavbar (responsive)

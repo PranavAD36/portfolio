@@ -135,54 +135,56 @@ const LeetCodeCard = () => {
               </div>
 
               {/* Stats Grid */}
-              <div className="flex-1 grid grid-cols-3 md:grid-cols-3 gap-3">
+              <div className="w-full max-w-[360px] flex flex-col gap-3">
                 {/* Streak Badge - Full Width */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0 }}
-                  className="col-span-3 p-4 rounded-xl bg-orange-500/20 border border-orange-400/50 text-center group/badge hover:bg-orange-500/30 hover:border-orange-400/80 transition-all"
+                  className="w-full p-4 rounded-xl bg-orange-500/20 border border-orange-400/50 text-center group/badge hover:bg-orange-500/30 hover:border-orange-400/80 transition-all"
                 >
                   <div className="text-xs text-orange-300 uppercase tracking-widest mb-1">Current Streak</div>
                   <div className="text-3xl font-bold text-orange-400 font-mono">{data.streak} 🔥</div>
                 </motion.div>
 
-                {/* Easy */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 }}
-                  className="p-4 rounded-xl bg-green-500/10 border border-green-400/30 text-center group/stat hover:bg-green-500/20 hover:border-green-400/50 transition-all"
-                >
-                  <div className="text-xs text-green-400 uppercase tracking-widest mb-1">Easy</div>
-                  <div className="text-2xl font-bold text-white font-mono">{data.easyCount}</div>
-                </motion.div>
+                <div className="grid grid-cols-3 gap-3">
+                  {/* Easy */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 }}
+                    className="p-4 rounded-xl bg-green-500/10 border border-green-400/30 text-center group/stat hover:bg-green-500/20 hover:border-green-400/50 transition-all"
+                  >
+                    <div className="text-xs text-green-400 uppercase tracking-widest mb-1">Easy</div>
+                    <div className="text-2xl font-bold text-white font-mono">{data.easyCount}</div>
+                  </motion.div>
 
-                {/* Medium */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 }}
-                  className="p-4 rounded-xl bg-yellow-500/10 border border-yellow-400/30 text-center group/stat hover:bg-yellow-500/20 hover:border-yellow-400/50 transition-all"
-                >
-                  <div className="text-xs text-yellow-400 uppercase tracking-widest mb-1">Medium</div>
-                  <div className="text-2xl font-bold text-white font-mono">{data.mediumCount}</div>
-                </motion.div>
+                  {/* Medium */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                    className="p-4 rounded-xl bg-yellow-500/10 border border-yellow-400/30 text-center group/stat hover:bg-yellow-500/20 hover:border-yellow-400/50 transition-all"
+                  >
+                    <div className="text-xs text-yellow-400 uppercase tracking-widest mb-1">Medium</div>
+                    <div className="text-2xl font-bold text-white font-mono">{data.mediumCount}</div>
+                  </motion.div>
 
-                {/* Hard */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 }}
-                  className="p-4 rounded-xl bg-red-500/10 border border-red-400/30 text-center group/stat hover:bg-red-500/20 hover:border-red-400/50 transition-all"
-                >
-                  <div className="text-xs text-red-400 uppercase tracking-widest mb-1">Hard</div>
-                  <div className="text-2xl font-bold text-white font-mono">{data.hardCount}</div>
-                </motion.div>
+                  {/* Hard */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 }}
+                    className="p-4 rounded-xl bg-red-500/10 border border-red-400/30 text-center group/stat hover:bg-red-500/20 hover:border-red-400/50 transition-all"
+                  >
+                    <div className="text-xs text-red-400 uppercase tracking-widest mb-1">Hard</div>
+                    <div className="text-2xl font-bold text-white font-mono">{data.hardCount}</div>
+                  </motion.div>
+                </div>
               </div>
             </div>
           </div>
