@@ -4,6 +4,7 @@ import FloatingAssistant from "@/components/features/floating-assistant";
 import AboutSection from "@/components/sections/about-section";
 import TechStack from "@/components/sections/tech-stack";
 import ProjectsSection from "@/components/sections/projects-section";
+import StatsSection from "@/components/sections/stats-section";
 import FooterSection from "@/components/sections/footer-section";
 import Preloader from "@/components/common/preloader";
 import SmoothScroll from "@/components/common/smooth-scroll"; 
