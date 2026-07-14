@@ -30,7 +30,7 @@
 - Uses GitHub’s public contribution page HTML, parsed server-side.
 - No fake or random contribution values are generated.
 - No tokens are exposed to the frontend.
-- The card UI retains its wider, cleaner layout while keeping the contribution graph centered and full-width.
+- The card UI retains its wider, cleaner layout with the contribution graph centered and filling the card area.
 - The contribution graph now renders month labels up to the current month and avoids future-month labels.
 
 ---

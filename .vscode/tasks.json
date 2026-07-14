@@ -60,6 +60,50 @@
 				"$tsc"
 			],
 			"group": "build"
+		},
+		{
+			"label": "portfolio-build",
+			"type": "shell",
+			"command": "npm run build",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "git-history",
+			"type": "shell",
+			"command": "git log --oneline -- components/sections/mission-control.tsx | head -20",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "show-previous-version",
+			"type": "shell",
+			"command": "git show 349118d:components/sections/mission-control.tsx",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "show-previous-version",
+			"type": "shell",
+			"command": "git show 349118d:components/sections/mission-control.tsx | sed -n '1,260p'",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "portfolio-build",
+			"type": "shell",
+			"command": "npm run build",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
 		}
 	]
 }
