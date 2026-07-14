@@ -78,6 +78,7 @@ export default function FooterSection() {
   const resetForm = () => {
     setIsSuccess(false);
     setResultMessage("");
+    setSendStatus("idle");
   };
 
   const links = [
@@ -145,7 +146,15 @@ export default function FooterSection() {
                         </button>
                     </motion.div>
                 ) : (
-                    <motion.form 
+                  <>
+                  {/* Error banner */}
+                  {sendStatus === "error" && (
+                    <div className="mb-4 p-3 rounded-md bg-red-900/30 border border-red-700 text-red-200 text-sm">
+                      <strong className="block font-bold">Submission error:</strong>
+                      <span className="block mt-1">{resultMessage}</span>
+                    </div>
+                  )}
+                  <motion.form 
                         key="form"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -182,23 +191,41 @@ export default function FooterSection() {
                             <textarea rows={4} name="message" required placeholder="Tell me what's on your mind..." className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors resize-none" />
                         </div>
                         
-                        <button 
-                            type="submit" 
-                            disabled={isSubmitting}
-                            className="w-full flex items-center justify-center gap-2 bg-white text-black font-bold py-3 rounded-lg hover:bg-cyan-400 transition-all duration-300 mt-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                        <motion.button
+                          type="submit"
+                          disabled={sendStatus === "sending"}
+                          initial={{ scale: 1 }}
+                          animate={{ scale: sendStatus === "sending" ? 0.98 : 1 }}
+                          transition={{ type: "spring", stiffness: 600, damping: 18 }}
+                          className={
+                            `w-full flex items-center justify-center gap-2 font-bold py-3 rounded-lg mt-2 disabled:opacity-70 disabled:cursor-not-allowed ` +
+                            (sendStatus === "idle" ? "bg-white text-black hover:bg-cyan-400" : "") +
+                            (sendStatus === "sending" ? "bg-cyan-400 text-black" : "") +
+                            (sendStatus === "success" ? "bg-green-500 text-white" : "") +
+                            (sendStatus === "error" ? "bg-red-600 text-white" : "")
+                          }
                         >
-                            {isSubmitting ? (
-                                <>
-                                    <Loader2 size={18} className="animate-spin" /> TRANSMITTING...
-                                </>
-                            ) : (
-                                <>
-                                    <Send size={18} /> SEND SIGNAL
-                                </>
-                            )}
-                        </button>
-                    </motion.form>
-                )}
+                          {sendStatus === "sending" ? (
+                            <>
+                              <Loader2 size={18} className="animate-spin" /> TRANSMITTING...
+                            </>
+                          ) : sendStatus === "success" ? (
+                            <>
+                              <CheckCircle size={18} /> SENT
+                            </>
+                          ) : sendStatus === "error" ? (
+                            <>
+                              <X size={18} /> ERROR
+                            </>
+                          ) : (
+                            <>
+                              <Send size={18} /> SEND SIGNAL
+                            </>
+                          )}
+                        </motion.button>
+                      </motion.form>
+                      </>
+                    )}
             </AnimatePresence>
         </motion.div>
 
