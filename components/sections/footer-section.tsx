@@ -4,13 +4,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { IconBrandGithub, IconBrandLinkedin, IconHome, IconMail, IconFileText, IconPhone } from "@tabler/icons-react";
 import { DotPattern } from "@/components/ui/dot-pattern";
 import { FloatingDock } from "@/components/ui/floating-dock";
-import { Send, CheckCircle, Loader2, RotateCcw } from "lucide-react";
+import { Send, CheckCircle, Loader2, RotateCcw, X } from "lucide-react";
 
 export default function FooterSection() {
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [resultMessage, setResultMessage] = useState("");
+  const [sendStatus, setSendStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
   const currentYear = new Date().getFullYear();
 
@@ -31,12 +32,10 @@ export default function FooterSection() {
     if (WEB3FORMS_ACCESS_KEY) {
       fd.set("access_key", WEB3FORMS_ACCESS_KEY);
     } else {
-      // Helpful console message for local setup
-      // Once you add NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY to .env.local and restart the dev server,
-      // submissions will include the proper access key.
-      // Note: Web3Forms also allows configuring the recipient email on their dashboard.
       console.warn("Web3Forms access key not set. Add NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY to .env.local");
     }
+    setSendStatus("sending");
+    setIsSubmitting(true);
 
     // Ensure messages are delivered to the correct recipient by adding a 'to' field and a clear subject
     const subjectEl = (form.elements.namedItem("subject") as HTMLSelectElement | null)?.value || "General";
@@ -50,15 +49,27 @@ export default function FooterSection() {
       });
 
       const data = await response.json();
+      // Log full API response for development debugging
+      // This prints whatever Web3Forms returns (success, message, errors)
+      // Do NOT expose sensitive keys in production logs
+      // eslint-disable-next-line no-console
+      console.log("Web3Forms response:", { status: response.status, body: data });
 
-      if (data.success) {
+      if (data && data.success) {
         setIsSuccess(true);
-        setResultMessage("TRANSMISSION RECEIVED. OVER.");
+        setResultMessage(data.message || "TRANSMISSION RECEIVED. OVER.");
+        setSendStatus("success");
       } else {
-        setResultMessage("TRANSMISSION FAILED. RETRY.");
+        const errMsg = data?.message || JSON.stringify(data) || "Unknown error";
+        setResultMessage(errMsg);
+        setSendStatus("error");
       }
-    } catch (error) {
-      setResultMessage("SIGNAL LOST. CHECK CONNECTION.");
+    } catch (error: any) {
+      const errMsg = error?.message || String(error);
+      setResultMessage(errMsg);
+      setSendStatus("error");
+      // eslint-disable-next-line no-console
+      console.error("Web3Forms request failed:", error);
     } finally {
       setIsSubmitting(false);
     }
