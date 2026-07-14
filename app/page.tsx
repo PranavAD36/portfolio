@@ -29,6 +29,7 @@ export default function Home() {
       <AboutSection />
       <TechStack />
       <ProjectsSection />
+      <StatsSection />
       <FloatingAssistant /> 
       <FooterSection /> 
           
