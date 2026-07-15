@@ -79,25 +79,26 @@ const LeetCodeCard = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="group relative h-full"
+      className="group relative"
     >
       <Link href={data.profileUrl} target="_blank" rel="noopener noreferrer">
-        <div className="p-8 md:p-10 rounded-2xl backdrop-blur-md border border-white/10 hover:border-orange-400/50 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/0 overflow-hidden cursor-pointer h-full flex flex-col">
+        <div className="p-8 md:p-10 rounded-2xl backdrop-blur-md border border-white/10 hover:border-orange-400/50 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/0 overflow-hidden cursor-pointer">
           {/* Background gradient on hover */}
           <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
           {/* Content */}
-          <div className="relative z-10 flex flex-col h-full">
+          <div className="relative z-10">
             {/* Header */}
-            <div className="mb-6">
+            <div className="mb-8">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">LeetCode Stats</h3>
               <div className="h-1 w-16 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full" />
             </div>
 
-            <div className="flex flex-1 flex-col lg:flex-row items-center lg:items-center gap-6 lg:gap-8">
+            {/* Circular Ring Style - Streak at top */}
+            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
               {/* Circular ring visualization */}
-              <div className="flex-shrink-0 flex justify-center">
-                <div className="relative w-36 h-36 sm:w-40 sm:h-40 md:w-44 md:h-44">
+              <div className="flex-1 flex justify-center">
+                <div className="relative w-40 h-40 md:w-48 md:h-48">
                   {/* Circular progress ring */}
                   <svg className="w-full h-full transform -rotate-90" viewBox="0 0 200 200">
                     <defs>
@@ -134,56 +135,54 @@ const LeetCodeCard = () => {
               </div>
 
               {/* Stats Grid */}
-              <div className="w-full flex-1 flex flex-col gap-3">
-                {/* Streak Badge */}
+              <div className="flex-1 grid grid-cols-3 md:grid-cols-3 gap-3">
+                {/* Streak Badge - Full Width */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0 }}
-                  className="w-full p-4 rounded-xl bg-orange-500/20 border border-orange-400/50 text-center group/badge hover:bg-orange-500/30 hover:border-orange-400/80 transition-all"
+                  className="col-span-3 p-4 rounded-xl bg-orange-500/20 border border-orange-400/50 text-center group/badge hover:bg-orange-500/30 hover:border-orange-400/80 transition-all"
                 >
                   <div className="text-xs text-orange-300 uppercase tracking-widest mb-1">Current Streak</div>
                   <div className="text-3xl font-bold text-orange-400 font-mono">{data.streak} 🔥</div>
                 </motion.div>
 
-                <div className="grid grid-cols-3 gap-3">
-                  {/* Easy */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.1 }}
-                    className="p-4 rounded-xl bg-green-500/10 border border-green-400/30 text-center group/stat hover:bg-green-500/20 hover:border-green-400/50 transition-all"
-                  >
-                    <div className="text-xs text-green-400 uppercase tracking-widest mb-1">Easy</div>
-                    <div className="text-2xl font-bold text-white font-mono">{data.easyCount}</div>
-                  </motion.div>
+                {/* Easy */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                  className="p-4 rounded-xl bg-green-500/10 border border-green-400/30 text-center group/stat hover:bg-green-500/20 hover:border-green-400/50 transition-all"
+                >
+                  <div className="text-xs text-green-400 uppercase tracking-widest mb-1">Easy</div>
+                  <div className="text-2xl font-bold text-white font-mono">{data.easyCount}</div>
+                </motion.div>
 
-                  {/* Medium */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2 }}
-                    className="p-4 rounded-xl bg-yellow-500/10 border border-yellow-400/30 text-center group/stat hover:bg-yellow-500/20 hover:border-yellow-400/50 transition-all"
-                  >
-                    <div className="text-xs text-yellow-400 uppercase tracking-widest mb-1">Medium</div>
-                    <div className="text-2xl font-bold text-white font-mono">{data.mediumCount}</div>
-                  </motion.div>
+                {/* Medium */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  className="p-4 rounded-xl bg-yellow-500/10 border border-yellow-400/30 text-center group/stat hover:bg-yellow-500/20 hover:border-yellow-400/50 transition-all"
+                >
+                  <div className="text-xs text-yellow-400 uppercase tracking-widest mb-1">Medium</div>
+                  <div className="text-2xl font-bold text-white font-mono">{data.mediumCount}</div>
+                </motion.div>
 
-                  {/* Hard */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3 }}
-                    className="p-4 rounded-xl bg-red-500/10 border border-red-400/30 text-center group/stat hover:bg-red-500/20 hover:border-red-400/50 transition-all"
-                  >
-                    <div className="text-xs text-red-400 uppercase tracking-widest mb-1">Hard</div>
-                    <div className="text-2xl font-bold text-white font-mono">{data.hardCount}</div>
-                  </motion.div>
-                </div>
+                {/* Hard */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                  className="p-4 rounded-xl bg-red-500/10 border border-red-400/30 text-center group/stat hover:bg-red-500/20 hover:border-red-400/50 transition-all"
+                >
+                  <div className="text-xs text-red-400 uppercase tracking-widest mb-1">Hard</div>
+                  <div className="text-2xl font-bold text-white font-mono">{data.hardCount}</div>
+                </motion.div>
               </div>
             </div>
           </div>
@@ -228,44 +227,41 @@ const GitHubCard = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: 0.2 }}
-      className="group relative h-full"
+      className="group relative"
     >
       <Link href={data.profileUrl} target="_blank" rel="noopener noreferrer">
-        <div className="p-8 md:p-10 rounded-2xl backdrop-blur-md border border-white/10 hover:border-cyan-400/50 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/0 overflow-hidden cursor-pointer h-full flex flex-col">
+        <div className="p-8 md:p-10 rounded-2xl backdrop-blur-md border border-white/10 hover:border-cyan-400/50 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/0 overflow-hidden cursor-pointer">
           {/* Background gradient on hover */}
           <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
           {/* Content */}
-          <div className="relative z-10 flex flex-col h-full">
+          <div className="relative z-10">
             {/* Header */}
-            <div className="mb-5">
+            <div className="mb-6">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">GitHub Contributions</h3>
               <div className="h-1 w-16 bg-gradient-to-r from-cyan-400 to-cyan-600 rounded-full" />
             </div>
 
             {/* Graph */}
-            <div className="mt-2 flex-1 flex items-start justify-center rounded-xl bg-white/5 px-2 py-2 md:px-3 md:py-3">
-              <div className="w-full max-w-full overflow-hidden rounded-lg">
-                <img
-                  src={data.graphUrl}
-                  alt="GitHub Contribution Graph"
-                  className="w-full h-auto rounded-lg object-contain"
-                  style={{ transform: "scale(1.02)", transformOrigin: "top center" }}
-                  onError={(e) => {
-                    const img = e.target as HTMLImageElement;
-                    img.style.display = "none";
-                    const parent = img.parentElement;
-                    if (parent) {
-                      parent.innerHTML =
-                        '<div class="text-center text-gray-400 py-12">Contribution graph temporarily unavailable</div>';
-                    }
-                  }}
-                />
-              </div>
+            <div className="overflow-x-auto pb-4">
+              <img
+                src={data.graphUrl}
+                alt="GitHub Contribution Graph"
+                className="w-full rounded-lg bg-white/5 p-2"
+                onError={(e) => {
+                  const img = e.target as HTMLImageElement;
+                  img.style.display = "none";
+                  const parent = img.parentElement;
+                  if (parent) {
+                    parent.innerHTML =
+                      '<div class="text-center text-gray-400 py-12">Contribution graph temporarily unavailable</div>';
+                  }
+                }}
+              />
             </div>
 
             {/* Profile Link */}
-            <div className="mt-4 pt-4 border-t border-white/10">
+            <div className="mt-6 pt-4 border-t border-white/10">
               <p className="text-xs text-gray-400 uppercase tracking-widest mb-2">Profile</p>
               <p className="text-white font-mono text-sm hover:text-cyan-400 transition-colors">
                 github.com/{data.username}
@@ -278,7 +274,7 @@ const GitHubCard = () => {
   );
 };
 
-// Main Mission Control Component
+// Main Mission Control Component   etle ene pan proper
 export default function MissionControl() {
   return (
     <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -299,7 +295,7 @@ export default function MissionControl() {
         </motion.div>
 
         {/* Two Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <LeetCodeCard />
           <GitHubCard />
         </div>
