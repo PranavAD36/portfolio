@@ -19,7 +19,6 @@ export default function FooterSection() {
   // ✅ Set your Web3Forms Access Key in a local env file: .env.local
   // Add this line to .env.local (do NOT commit this file):
   // NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your_real_web3forms_access_key_here
-  const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -27,10 +26,11 @@ export default function FooterSection() {
 
     const form = e.currentTarget as HTMLFormElement;
     const fd = new FormData(form);
+    const web3FormsAccessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY?.trim();
 
     // Attach the access key from the environment. Do NOT hardcode your key here.
-    if (WEB3FORMS_ACCESS_KEY) {
-      fd.set("access_key", WEB3FORMS_ACCESS_KEY);
+    if (web3FormsAccessKey) {
+      fd.set("access_key", web3FormsAccessKey);
     } else {
       console.warn("Web3Forms access key not set. Add NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY to .env.local");
     }
