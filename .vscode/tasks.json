@@ -114,6 +114,16 @@
 				"$tsc"
 			],
 			"group": "build"
+		},
+		{
+			"label": "portfolio-build",
+			"type": "shell",
+			"command": "npm run build",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
 		}
 	]
 }
