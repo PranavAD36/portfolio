@@ -1,3 +1,4 @@
+<!-- Guide Files -->
 # Component Map
 
 Detailed guide to every visible section of the portfolio with editing instructions.
