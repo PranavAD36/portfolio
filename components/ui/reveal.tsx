@@ -47,5 +47,3 @@ export const Reveal = ({ children, className, delay = 0.25, width = "fit-content
 
 
 
-
-
