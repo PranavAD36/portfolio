@@ -21,7 +21,7 @@ export const Reveal = ({ children, className, delay = 0.25, width = "fit-content
       controls.start("visible");
     }
   }, [isInView, controls]);
-//
+
   return (
     <div ref={ref} style={{ position: "relative", width, overflow: "hidden" }} className={className}>
       <motion.div
