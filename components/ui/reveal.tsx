@@ -13,7 +13,7 @@ interface RevealProps {
 
 export const Reveal = ({ children, className, delay = 0.25, width = "fit-content" }: RevealProps) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" }); 
+  const isInView = useInView(ref, { once: true, margin: "-100px" }); // Margin fix kiya taaki thoda pehle dikhe
   const controls = useAnimation();
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export const Reveal = ({ children, className, delay = 0.25, width = "fit-content
       controls.start("visible");
     }
   }, [isInView, controls]);
-
+//
   return (
     <div ref={ref} style={{ position: "relative", width, overflow: "hidden" }} className={className}>
       <motion.div
