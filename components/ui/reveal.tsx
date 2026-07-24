@@ -13,7 +13,7 @@ interface RevealProps {
 
 export const Reveal = ({ children, className, delay = 0.25, width = "fit-content" }: RevealProps) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" }); // Margin fix kiya taaki thoda pehle dikhe
+  const isInView = useInView(ref, { once: true, margin: "-100px" }); 
   const controls = useAnimation();
 
   useEffect(() => {
