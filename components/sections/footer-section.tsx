@@ -241,7 +241,7 @@ export default function FooterSection() {
                     P
                 </div>
                 <div className="flex flex-col">
-                    <p className="tracking-widest text-gray-400">© {currentYear} Pranav Dabhi</p>
+                    <p className="tracking-widest text-gray-400">© {currentYear} Pranav Dabhi. All rights reserved. </p>
                     <p className="text-[10px] text-gray-600">SYSTEM STATUS: ONLINE</p>
                 </div>
             </div>
