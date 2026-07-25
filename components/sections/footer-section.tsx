@@ -93,10 +93,10 @@ export default function FooterSection() {
   return (
     <motion.section
       id="contact"
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      initial={{ opacity: 0, y: 32, filter: "blur(8px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1] }}
       className="w-full relative pt-20 pb-8 bg-black overflow-hidden border-t border-white/10 flex flex-col items-center"
     >
       
@@ -108,9 +108,10 @@ export default function FooterSection() {
         
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-10"
         >
           <h2 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500 font-space-grotesk">
@@ -127,6 +128,10 @@ export default function FooterSection() {
         {/* Form Container */}
         <motion.div
             layout
+            initial={{ opacity: 0, y: 24, scale: 0.97, filter: "blur(8px)" }}
+            whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
             className="w-full max-w-xl p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl mb-12 overflow-hidden relative"
         >
             <AnimatePresence mode="wait">
@@ -237,13 +242,24 @@ export default function FooterSection() {
         </motion.div>
 
         {/* Floating Dock */}
-        <div className="mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-12"
+        >
              <FloatingDock items={links} desktopClassName="bg-black/80 border-white/10 shadow-2xl" />
-        </div>
+        </motion.div>
 
         {/* Bottom Strip */}
-        <div className="w-full pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-xs font-mono text-gray-500 gap-6">
-            <div className="flex items-center gap-4">
+        <motion.div
+          initial={{ opacity: 0, y: 18, filter: "blur(4px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+          className="w-full pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-xs font-mono text-gray-500 gap-6"
+        >            <div className="flex items-center gap-4">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/50 text-sm font-bold text-white shadow-[0_0_15px_rgba(34,211,238,0.1)]">
                     P
                 </div>
@@ -273,7 +289,7 @@ export default function FooterSection() {
                     BUILT WITH <span className="text-white font-bold">NEXT.JS</span> & <span className="text-cyan-500 font-bold">TAILWIND</span>
                 </p>
             </div>
-        </div>
+        </motion.div>
 
       </div>
     </motion.section>

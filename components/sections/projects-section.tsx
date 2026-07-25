@@ -37,19 +37,15 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
+      staggerChildren: 0.16,
+      delayChildren: 0.12,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6 },
-  },
+  hidden: { opacity: 0, y: 28, scale: 0.96, filter: "blur(6px)" },
+  visible: { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" },
 };
 
 function ProjectCard({ project, index }: { project: (typeof projects)[number]; index: number }) {
@@ -80,10 +76,10 @@ function ProjectCard({ project, index }: { project: (typeof projects)[number]; i
       className="relative group"
     >
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.3 }}
+        initial={{ opacity: 0, scale: 0.96, filter: "blur(6px)" }}
+        whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         className="block w-[90vw] max-w-sm overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-5 shadow-2xl backdrop-blur-sm transition-all duration-300 hover:border-cyan-400/50 hover:bg-white/8 md:hidden"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-purple-500/0 transition-all duration-300 group-hover:from-cyan-500/10 group-hover:to-purple-500/10" />
@@ -129,10 +125,10 @@ function ProjectCard({ project, index }: { project: (typeof projects)[number]; i
       <div className="hidden md:block">
         <PinContainer title={project.title}>
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1, type: "spring", stiffness: 170, damping: 18 }}
+            initial={{ opacity: 0, y: 28, scale: 0.96, filter: "blur(6px)" }}
+            whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ delay: index * 0.12, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             onMouseMove={handleMove}
             onMouseLeave={handleLeave}
             animate={{
@@ -219,10 +215,10 @@ export default function ProjectsSection() {
   return (
     <motion.section
       id="projects"
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      initial={{ opacity: 0, y: 32, filter: "blur(8px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1] }}
       className="relative w-full overflow-hidden bg-black py-20"
     >
       <div className="absolute inset-0 z-0 h-full w-full">
@@ -230,10 +226,10 @@ export default function ProjectsSection() {
       </div>
 
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
         className="relative z-20 mb-16 px-4 text-center"
       >
         <h2 className="bg-gradient-to-b from-white to-gray-500 bg-clip-text text-4xl font-bold text-transparent font-space-grotesk md:text-6xl">

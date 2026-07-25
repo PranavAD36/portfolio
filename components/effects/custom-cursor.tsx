@@ -11,6 +11,7 @@ interface CursorState {
 
 export function CustomCursor() {
     const [state, setState] = useState<CursorState>({ mode: "default" });
+    const [isMounted, setIsMounted] = useState(false);
 
     // Smooth cursor position
     const springConfig = { damping: 30, stiffness: 500 };
@@ -69,6 +70,7 @@ export function CustomCursor() {
     }, []);
 
     useEffect(() => {
+        setIsMounted(true);
         window.addEventListener("mousemove", handleMouseMove);
         document.addEventListener("mouseleave", handleMouseLeave);
         return () => {
@@ -77,6 +79,7 @@ export function CustomCursor() {
         };
     }, [handleMouseMove, handleMouseLeave]);
 
+    if (!isMounted) return null;
     if (typeof window !== "undefined" && "ontouchstart" in window) return null;
 
     const isInteractive = state.mode === "link" || state.mode === "button";
@@ -96,8 +99,8 @@ export function CustomCursor() {
                         height: isInteractive ? 48 : isText ? 32 : 24,
                         opacity: state.mode === "hidden" ? 0 : 1,
                         borderColor: isInteractive
-                            ? "rgba(0, 255, 255, 0.6)"
-                            : "rgba(255, 255, 255, 0.15)",
+                            ? "rgba(255, 255, 255, 0.95)"
+                            : "rgba(255, 255, 255, 0.16)",
                     }}
                     transition={{ type: "spring", damping: 20, stiffness: 300 }}
                     className="rounded-full border"
@@ -124,9 +127,9 @@ export function CustomCursor() {
                             <motion.div
                                 animate={{ scale: [1, 1.1, 1] }}
                                 transition={{ duration: 1.5, repeat: Infinity }}
-                                className="absolute inset-0 rounded-full border-2 border-primary/50"
+                                className="absolute inset-0 rounded-full border-2 border-white/70"
                             />
-                            <div className="w-2 h-2 rounded-full bg-primary" />
+                            <div className="h-2 w-2 rounded-full bg-white/90" />
                         </motion.div>
                     )}
 
@@ -140,7 +143,7 @@ export function CustomCursor() {
                             className="flex items-center justify-center"
                             style={{ width: 24, height: 24 }}
                         >
-                            <div className="w-0.5 h-4 bg-foreground/50 rounded-full" />
+                            <div className="h-2 w-2 rounded-full bg-white/95" />
                         </motion.div>
                     )}
 
@@ -151,7 +154,7 @@ export function CustomCursor() {
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
                             exit={{ scale: 0 }}
-                            className="w-2 h-2 rounded-full bg-foreground mix-blend-difference"
+                            className="h-2 w-2 rounded-full bg-white/95 mix-blend-difference"
                         />
                     )}
                 </AnimatePresence>

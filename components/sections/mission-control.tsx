@@ -84,10 +84,10 @@ const LeetCodeCard = () => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
+      initial={{ opacity: 0, y: 28, scale: 0.98, filter: "blur(6px)" }}
+      whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       className="group relative h-full"
     >
       <Link
@@ -290,10 +290,10 @@ const GitHubCard = () => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: 0.2 }}
+      initial={{ opacity: 0, y: 28, scale: 0.98, filter: "blur(6px)" }}
+      whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
       className="group relative h-full"
     >
       <Link
@@ -359,20 +359,20 @@ const GitHubCard = () => {
 export default function MissionControl() {
   return (
     <motion.section
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      initial={{ opacity: 0, y: 32, filter: "blur(8px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1] }}
       className="relative overflow-hidden px-4 py-12 sm:px-6 lg:px-8"
     >
       <div className="absolute inset-0 -z-10" />
 
       <div className="mx-auto max-w-7xl">
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: -20, filter: "blur(6px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
           className="mb-8 text-center"
         >
           <h2 className="mb-4 text-4xl font-bold text-white md:text-5xl">

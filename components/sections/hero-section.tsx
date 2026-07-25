@@ -9,10 +9,10 @@ export default function HeroSection() {
   return (
     <motion.section
       id="home"
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      initial={{ opacity: 0, y: 32, filter: "blur(8px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
       className="h-screen w-full relative overflow-hidden bg-black flex flex-col items-center justify-center"
     >
       
@@ -27,18 +27,18 @@ export default function HeroSection() {
       <div className="relative z-20 w-full h-full flex flex-col justify-end items-start pb-32 px-6 md:px-16 pointer-events-none">
         
         <motion.span 
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          initial={{ opacity: 0, x: -24, filter: "blur(6px)" }}
+          animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.95, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
           className="text-cyan-400/80 text-sm md:text-xl font-mono tracking-[0.2em] mb-4 ml-1"
         >
           HELLO, I AM A
         </motion.span>
 
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
+          initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.95, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
           className="mb-6 flex items-center gap-4"
         >
           <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-cyan-400 via-sky-500 to-violet-500 text-2xl font-bold text-white shadow-[0_0_45px_rgba(56,189,248,0.35)]">
@@ -65,9 +65,9 @@ export default function HeroSection() {
 
       {/* ✅ 3. SCROLL INDICATOR (New Feature) */}
       <motion.div 
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2, duration: 1 }}
+        initial={{ opacity: 0, y: -24, filter: "blur(6px)" }}
+        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        transition={{ delay: 1.2, duration: 1.05, ease: [0.22, 1, 0.36, 1] }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-30 cursor-pointer pointer-events-auto"
         onClick={() => {
           // Smooth Scroll to 'about' section on click

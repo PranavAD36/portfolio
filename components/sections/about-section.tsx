@@ -42,10 +42,10 @@ export default function AboutSection() {
     <motion.section 
         id="about" 
         ref={ref} // Attach Ref here to track scroll
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        initial={{ opacity: 0, y: 32, filter: "blur(8px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         className="w-full min-h-screen relative flex items-center justify-center overflow-hidden bg-black"
     >
       
@@ -65,10 +65,10 @@ export default function AboutSection() {
             {!isUnlocked ? (
                 <motion.div
                     key="locked"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
-                    transition={{ duration: 0.5 }}
+                    initial={{ opacity: 0, x: -24, scale: 0.96, filter: "blur(6px)" }}
+                    animate={{ opacity: 1, x: 0, scale: 1, filter: "blur(0px)" }}
+                    exit={{ opacity: 0, x: 24, scale: 1.02, filter: "blur(8px)" }}
+                    transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
                     // Click bhi kaam karega agar user fast hai
                     onClick={() => setIsUnlocked(true)}
                     className="flex flex-col items-center justify-center cursor-pointer py-20"
@@ -97,9 +97,9 @@ export default function AboutSection() {
             /* --- STATE B: UNLOCKED (Profile Card) --- */
                 <motion.div
                     key="unlocked"
-                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    transition={{ duration: 0.5, ease: "circOut" }}
+                    initial={{ opacity: 0, scale: 0.96, y: 24, x: 12, filter: "blur(6px)" }}
+                    animate={{ opacity: 1, scale: 1, y: 0, x: 0, filter: "blur(0px)" }}
+                    transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                     className="w-full bg-black/80 border border-white/10 rounded-3xl p-6 md:p-10 backdrop-blur-xl shadow-2xl"
                 >
                     {/* Header */}

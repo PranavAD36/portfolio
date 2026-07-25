@@ -29,7 +29,7 @@ export default function TechStack() {
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 0.75, ease: "easeOut" }}
       className="w-full relative overflow-hidden bg-black min-h-[50rem] md:min-h-screen flex flex-col items-center justify-center"
     >
       
