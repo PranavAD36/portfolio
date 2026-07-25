@@ -358,7 +358,13 @@ const GitHubCard = () => {
 
 export default function MissionControl() {
   return (
-    <section className="relative overflow-hidden px-4 py-12 sm:px-6 lg:px-8">
+    <motion.section
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="relative overflow-hidden px-4 py-12 sm:px-6 lg:px-8"
+    >
       <div className="absolute inset-0 -z-10" />
 
       <div className="mx-auto max-w-7xl">
@@ -383,6 +389,6 @@ export default function MissionControl() {
           <GitHubCard />
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

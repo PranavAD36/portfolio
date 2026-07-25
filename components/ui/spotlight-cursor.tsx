@@ -8,28 +8,21 @@ export default function SpotlightCursor() {
     if (typeof window === "undefined") {
       return false;
     }
-
     return !window.matchMedia("(pointer: coarse)").matches;
   });
-
-  const cursorX = useSpring(0, { damping: 24, stiffness: 380, mass: 0.35 });
-  const cursorY = useSpring(0, { damping: 24, stiffness: 380, mass: 0.35 });
+  const [mainPos, setMainPos] = useState({ x: 0, y: 0 });
+  const tailX = useSpring(0, { damping: 24, stiffness: 320 });
+  const tailY = useSpring(0, { damping: 24, stiffness: 320 });
 
   useEffect(() => {
     if (!isVisible) {
       return;
     }
 
-    let frame = 0;
     const handleMouseMove = (event: MouseEvent) => {
-      if (frame) {
-        cancelAnimationFrame(frame);
-      }
-
-      frame = window.requestAnimationFrame(() => {
-        cursorX.set(event.clientX);
-        cursorY.set(event.clientY);
-      });
+      setMainPos({ x: event.clientX, y: event.clientY });
+      tailX.set(event.clientX);
+      tailY.set(event.clientY);
     };
 
     const handleMouseOver = (event: MouseEvent) => {
@@ -40,7 +33,6 @@ export default function SpotlightCursor() {
         !!target.closest("a") ||
         !!target.closest("button") ||
         target.classList.contains("cursor-pointer");
-
       setIsHovered(Boolean(isClickable));
     };
 
@@ -52,37 +44,49 @@ export default function SpotlightCursor() {
     document.body.style.cursor = "none";
 
     return () => {
-      window.cancelAnimationFrame(frame);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseover", handleMouseOver);
       window.removeEventListener("mouseleave", handleMouseLeave);
       document.body.style.cursor = "auto";
     };
-  }, [cursorX, cursorY, isVisible]);
+  }, [isVisible, tailX, tailY]);
 
   if (!isVisible) return null;
 
   return (
-    <motion.div
-      className="pointer-events-none fixed left-0 top-0 z-[99999] flex items-center justify-center rounded-full border border-cyan-400/70 bg-cyan-400/10"
-      style={{
-        x: cursorX,
-        y: cursorY,
-        translateX: "-50%",
-        translateY: "-50%",
-      }}
-      animate={{
-        width: isHovered ? 44 : 24,
-        height: isHovered ? 44 : 24,
-        boxShadow: isHovered
-          ? "0 0 0 1px rgba(34,211,238,0.18), 0 0 18px rgba(34,211,238,0.32)"
-          : "0 0 16px rgba(34,211,238,0.2)",
-        scale: isHovered ? 1.08 : 1,
-        opacity: 0.96,
-      }}
-      transition={{ duration: 0.16, ease: "easeOut" }}
-    >
-      <span className="text-[10px] font-semibold leading-none text-cyan-300">+</span>
-    </motion.div>
+    <>
+      <motion.div
+        className="pointer-events-none fixed left-0 top-0 z-[99999] flex items-center justify-center rounded-full border border-white/40 bg-white/[0.04]"
+        style={{
+          x: mainPos.x,
+          y: mainPos.y,
+          translateX: "-50%",
+          translateY: "-50%",
+        }}
+        animate={{
+          width: isHovered ? 42 : 28,
+          height: isHovered ? 42 : 28,
+          boxShadow: isHovered
+            ? "0 0 0 1px rgba(255,255,255,0.08), 0 0 18px rgba(255,255,255,0.12)"
+            : "0 0 12px rgba(255,255,255,0.08)",
+          opacity: 0.96,
+        }}
+        transition={{ duration: 0.12, ease: "easeOut" }}
+      >
+        <span className="text-[14px] font-light leading-none text-white/85">+</span>
+      </motion.div>
+
+      <motion.div
+        className="pointer-events-none fixed left-0 top-0 z-[99998] h-2.5 w-2.5 rounded-full bg-white/35"
+        style={{
+          x: tailX,
+          y: tailY,
+          translateX: "-50%",
+          translateY: "-50%",
+        }}
+        animate={{ scale: isHovered ? 1.35 : 1, opacity: isHovered ? 0.85 : 0.6 }}
+        transition={{ duration: 0.12, ease: "easeOut" }}
+      />
+    </>
   );
 }

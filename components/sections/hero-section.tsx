@@ -7,7 +7,14 @@ import { ChevronDown } from "lucide-react"; // ✅ Arrow Icon
 
 export default function HeroSection() {
   return (
-    <section id="home" className="h-screen w-full relative overflow-hidden bg-black flex flex-col items-center justify-center">
+    <motion.section
+      id="home"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="h-screen w-full relative overflow-hidden bg-black flex flex-col items-center justify-center"
+    >
       
       {/* 1. WARP SPEED BACKGROUND */}
       <Starfield 
@@ -84,6 +91,6 @@ export default function HeroSection() {
         </motion.div>
       </motion.div>
 
-    </section>
+    </motion.section>
   );
 }

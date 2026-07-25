@@ -17,8 +17,10 @@ This file documents the portfolio project structure and the main files involved 
 - Web3Forms → components/sections/footer-section.tsx
 - Preloader → components/common/preloader.tsx
 - Premium Cursor → components/ui/spotlight-cursor.tsx
+- Global Cursor Hiding → app/globals.css
 - Project Card Interactions → components/sections/projects-section.tsx
 - Mission Control Layout Tuning → components/sections/mission-control.tsx
+- Scroll Reveal Animations → components/sections/hero-section.tsx, components/sections/about-section.tsx, components/sections/tech-stack.tsx, components/sections/footer-section.tsx
 
 Want to edit Web3Forms? → components/sections/footer-section.tsx
 

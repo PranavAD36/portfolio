@@ -91,7 +91,14 @@ export default function FooterSection() {
   ];
 
   return (
-    <section id="contact" className="w-full relative pt-20 pb-8 bg-black overflow-hidden border-t border-white/10 flex flex-col items-center">
+    <motion.section
+      id="contact"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="w-full relative pt-20 pb-8 bg-black overflow-hidden border-t border-white/10 flex flex-col items-center"
+    >
       
       <div className="absolute inset-0 z-0 h-full w-full bg-black">
          <DotPattern className="opacity-40 [mask-image:radial-gradient(600px_circle_at_center,white,transparent)]" width={20} height={20} cx={1} cy={1} cr={1} />
@@ -269,6 +276,6 @@ export default function FooterSection() {
         </div>
 
       </div>
-    </section>
+    </motion.section>
   );
 }

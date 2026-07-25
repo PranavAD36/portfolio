@@ -217,7 +217,14 @@ function ProjectCard({ project, index }: { project: (typeof projects)[number]; i
 
 export default function ProjectsSection() {
   return (
-    <section id="projects" className="relative w-full overflow-hidden bg-black py-20">
+    <motion.section
+      id="projects"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="relative w-full overflow-hidden bg-black py-20"
+    >
       <div className="absolute inset-0 z-0 h-full w-full">
         <RetroGrid className="opacity-100" />
       </div>
@@ -248,6 +255,6 @@ export default function ProjectsSection() {
           <ProjectCard key={project.title} project={project} index={idx} />
         ))}
       </motion.div>
-    </section>
+    </motion.section>
   );
 }

@@ -39,9 +39,13 @@ export default function AboutSection() {
   }, [isInView, isUnlocked]);
 
   return (
-    <section 
+    <motion.section 
         id="about" 
         ref={ref} // Attach Ref here to track scroll
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         className="w-full min-h-screen relative flex items-center justify-center overflow-hidden bg-black"
     >
       
@@ -149,7 +153,7 @@ export default function AboutSection() {
         </AnimatePresence>
 
       </div>
-    </section>
+    </motion.section>
   );
 }
 

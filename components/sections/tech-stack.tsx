@@ -24,7 +24,14 @@ const slugs = [
 
 export default function TechStack() {
   return (
-    <section id="stack" className="w-full relative overflow-hidden bg-black min-h-[50rem] md:min-h-screen flex flex-col items-center justify-center">
+    <motion.section
+      id="stack"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="w-full relative overflow-hidden bg-black min-h-[50rem] md:min-h-screen flex flex-col items-center justify-center"
+    >
       
       {/* ✅ LIGHT RAYS (Volumetric Effect) */}
       <LightRays 
@@ -67,6 +74,6 @@ export default function TechStack() {
         </div>
 
       </div>
-    </section>
+    </motion.section>
   );
 }

@@ -9,6 +9,25 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  cursor: none !important;
+}
+
+body * {
+  cursor: none !important;
+}
+
+a,
+button,
+input,
+textarea,
+select,
+[role="button"],
+[data-cursor-none] {
+  cursor: none !important;
+}
+
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -173,6 +192,6 @@ html {
   }
   
   /* Ensure links/buttons also don't show the hand pointer */
-  /* a, button, [role="button"] {
+/* a, button, [role="button"] {
     cursor: none !important;
   } */
