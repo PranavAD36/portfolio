@@ -96,7 +96,7 @@ const LeetCodeCard = () => {
         rel="noopener noreferrer"
         className="block h-full"
       >
-        <div className="relative flex h-full min-h-[500px] flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/0 p-5 backdrop-blur-md transition-all duration-300 hover:border-orange-400/50 sm:min-h-[520px] sm:p-6 md:p-6 lg:min-h-[540px] lg:p-6 xl:p-7">
+        <div className="relative flex h-full min-h-[470px] flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/0 p-4 backdrop-blur-md transition-all duration-300 hover:border-orange-400/50 sm:min-h-[500px] sm:p-5 md:p-5 lg:min-h-[520px] lg:p-5 xl:p-6">
           <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
           <div className="relative z-10 flex h-full flex-col">
@@ -108,7 +108,7 @@ const LeetCodeCard = () => {
             </div>
 
             <div className="flex flex-1 items-center justify-center">
-              <div className="flex w-full flex-col items-center justify-center gap-5 lg:flex-row lg:items-center lg:justify-between lg:gap-6">
+              <div className="flex w-full flex-col items-center justify-center gap-4 lg:flex-row lg:items-center lg:justify-between lg:gap-5">
                 <div className="flex w-full justify-center lg:w-[45%]">
                   <div className="relative h-48 w-48 sm:h-52 sm:w-52">
                     <svg
@@ -162,7 +162,7 @@ const LeetCodeCard = () => {
                   </div>
                 </div>
 
-                <div className="flex w-full flex-col gap-3 lg:w-[50%] lg:gap-4">
+                <div className="flex w-full flex-col gap-3 lg:w-[50%] lg:gap-3">
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -302,7 +302,7 @@ const GitHubCard = () => {
         rel="noopener noreferrer"
         className="block h-full"
       >
-        <div className="relative flex h-full min-h-[500px] flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/0 p-5 backdrop-blur-md transition-all duration-300 hover:border-cyan-400/50 sm:min-h-[520px] sm:p-6 md:p-6 lg:min-h-[540px] lg:p-6 xl:p-7">
+        <div className="relative flex h-full min-h-[470px] flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/0 p-4 backdrop-blur-md transition-all duration-300 hover:border-cyan-400/50 sm:min-h-[500px] sm:p-5 md:p-5 lg:min-h-[520px] lg:p-5 xl:p-6">
           <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
           <div className="relative z-10 flex h-full flex-col">
@@ -313,8 +313,8 @@ const GitHubCard = () => {
               <div className="h-1 w-16 rounded-full bg-gradient-to-r from-cyan-400 to-cyan-600" />
             </div>
 
-            <div className="flex flex-1 items-center justify-center py-1">
-              <div className="flex w-full max-w-[760px] items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] p-3 sm:p-4">
+            <div className="flex flex-1 items-center justify-center py-0">
+              <div className="flex w-full max-w-[760px] items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] p-2 sm:p-3">
                 {graphSrc ? (
                   <img
                     src={graphSrc}
@@ -341,7 +341,7 @@ const GitHubCard = () => {
               </div>
             </div>
 
-            <div className="mt-4 border-t border-white/10 pt-4 sm:mt-5 sm:pt-5">
+            <div className="mt-3 border-t border-white/10 pt-3 sm:mt-4 sm:pt-4">
               <p className="mb-2 text-[11px] uppercase tracking-[0.3em] text-gray-400">
                 GitHub Profile
               </p>

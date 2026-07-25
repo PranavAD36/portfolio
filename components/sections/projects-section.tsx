@@ -132,23 +132,22 @@ function ProjectCard({ project, index }: { project: (typeof projects)[number]; i
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: index * 0.1, type: "spring", stiffness: 180, damping: 20 }}
+            transition={{ delay: index * 0.1, type: "spring", stiffness: 170, damping: 18 }}
             onMouseMove={handleMove}
             onMouseLeave={handleLeave}
             animate={{
               rotateX: rotation.x,
               rotateY: rotation.y,
-              scale: active ? 1.02 : 1,
-              y: active ? -4 : 0,
+              scale: active ? 1.015 : 1,
             }}
             className="group flex h-[28rem] w-[26rem] max-w-[90vw] basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-[24rem]"
           >
             <motion.div
               className="pointer-events-none absolute inset-0 rounded-[inherit] border border-cyan-400/20"
               animate={{
-                opacity: active ? 1 : 0.3,
+                opacity: active ? 1 : 0.25,
                 boxShadow: active
-                  ? "0 0 0 1px rgba(34,211,238,0.2), 0 0 40px rgba(34,211,238,0.12)"
+                  ? "0 0 0 1px rgba(34,211,238,0.2), 0 0 32px rgba(34,211,238,0.16)"
                   : "0 0 0 0 rgba(34,211,238,0)",
               }}
               transition={{ duration: 0.2 }}

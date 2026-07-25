@@ -18,6 +18,7 @@ This file documents the portfolio project structure and the main files involved 
 - Preloader → components/common/preloader.tsx
 - Premium Cursor → components/ui/spotlight-cursor.tsx
 - Project Card Interactions → components/sections/projects-section.tsx
+- Mission Control Layout Tuning → components/sections/mission-control.tsx
 
 Want to edit Web3Forms? → components/sections/footer-section.tsx
 
