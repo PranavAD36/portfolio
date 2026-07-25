@@ -8,14 +8,12 @@ import MissionControl from "@/components/sections/mission-control";
 import FooterSection from "@/components/sections/footer-section";
 import Preloader from "@/components/common/preloader";
 import SmoothScroll from "@/components/common/smooth-scroll";
-import SpotlightCursor from "@/components/ui/spotlight-cursor";
 
 export default function Home() {
   return (
     <main className="relative min-h-screen w-full bg-black">
       <Preloader />
       <SmoothScroll />
-      <SpotlightCursor />
 
       <Navbar />
       <HeroSection />

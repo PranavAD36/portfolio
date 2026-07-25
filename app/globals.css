@@ -9,25 +9,6 @@ html {
   scroll-behavior: smooth;
 }
 
-html,
-body {
-  cursor: none !important;
-}
-
-body * {
-  cursor: none !important;
-}
-
-a,
-button,
-input,
-textarea,
-select,
-[role="button"],
-[data-cursor-none] {
-  cursor: none !important;
-}
-
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -184,14 +165,3 @@ select,
     @apply bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent;
   }
 }
-
-/* Hide default cursor on desktop only */
-/* @media (min-width: 768px) {
-  body {
-    cursor: none;
-  }
-  
-  /* Ensure links/buttons also don't show the hand pointer */
-/* a, button, [role="button"] {
-    cursor: none !important;
-  } */

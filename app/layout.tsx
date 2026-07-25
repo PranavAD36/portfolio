@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { GlobalEffects } from "@/components/providers/global-effects";
 
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 
@@ -39,7 +40,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={spaceGrotesk.className}>{children}</body>
+      <body className={spaceGrotesk.className}>
+        <GlobalEffects />
+        {children}
+      </body>
     </html>
   );
 }
