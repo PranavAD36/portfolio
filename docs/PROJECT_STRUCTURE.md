@@ -15,6 +15,9 @@ This file documents the portfolio project structure and the main files involved 
 - LeetCode → components/sections/mission-control.tsx and app/api/mission-control/leetcode/route.ts
 - GitHub → components/sections/mission-control.tsx and app/api/mission-control/github/route.ts
 - Web3Forms → components/sections/footer-section.tsx
+- Preloader → components/common/preloader.tsx
+- Premium Cursor → components/ui/spotlight-cursor.tsx
+- Project Card Interactions → components/sections/projects-section.tsx
 
 Want to edit Web3Forms? → components/sections/footer-section.tsx
 

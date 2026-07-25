@@ -7,32 +7,24 @@ import ProjectsSection from "@/components/sections/projects-section";
 import MissionControl from "@/components/sections/mission-control";
 import FooterSection from "@/components/sections/footer-section";
 import Preloader from "@/components/common/preloader";
-import SmoothScroll from "@/components/common/smooth-scroll"; 
-import FeedbackPopup from "@/components/features/feedback-popup";
-// import SpotlightCursor from "@/components/ui/spotlight-cursor";
- 
-
+import SmoothScroll from "@/components/common/smooth-scroll";
+import SpotlightCursor from "@/components/ui/spotlight-cursor";
 
 export default function Home() {
   return (
-    <main className="bg-black min-h-screen w-full relative">
-      
-      {/* ✅ UTILITIES (Logic Only) */}
+    <main className="relative min-h-screen w-full bg-black">
       <Preloader />
       <SmoothScroll />
-      <FeedbackPopup />
-    {/* <SpotlightCursor /> */}
+      <SpotlightCursor />
 
-      {/* ✅ VISIBLE SECTIONS */}
       <Navbar />
       <HeroSection />
       <AboutSection />
       <TechStack />
       <ProjectsSection />
       <MissionControl />
-      <FloatingAssistant /> 
-      <FooterSection /> 
-          
+      <FloatingAssistant />
+      <FooterSection />
     </main>
   );
 }

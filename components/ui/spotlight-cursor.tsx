@@ -1,84 +1,97 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, useSpring } from "framer-motion";
 
 export default function SpotlightCursor() {
   const [isHovered, setIsHovered] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-
-  // 1. Raw Mouse Values
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  // 2. High-Speed Physics (Zero Jitter, High Response)
-  const springConfig = { damping: 28, stiffness: 500, mass: 0.5 };
-  
-  const cursorX = useSpring(mouseX, springConfig);
-  const cursorY = useSpring(mouseY, springConfig);
-
-  useEffect(() => {
-    // Mobile Check (Touch devices par hide karo)
-    if (typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches) {
-        setIsVisible(false);
-        return;
+  const [isVisible] = useState(() => {
+    if (typeof window === "undefined") {
+      return false;
     }
 
-    setIsVisible(true);
+    return !window.matchMedia("(pointer: coarse)").matches;
+  });
 
-    const moveCursor = (e: MouseEvent) => {
-      // Direct update for speed
-      mouseX.set(e.clientX);
-      mouseY.set(e.clientY);
+  const cursorX = useSpring(0, { damping: 24, stiffness: 320, mass: 0.35 });
+  const cursorY = useSpring(0, { damping: 24, stiffness: 320, mass: 0.35 });
+
+  useEffect(() => {
+    if (!isVisible) {
+      return;
+    }
+
+    let frame = 0;
+    const handleMouseMove = (event: MouseEvent) => {
+      if (frame) {
+        cancelAnimationFrame(frame);
+      }
+
+      frame = window.requestAnimationFrame(() => {
+        cursorX.set(event.clientX);
+        cursorY.set(event.clientY);
+      });
     };
 
-    const handleMouseOver = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      // Hover detection logic
-      const isClickable = 
+    const handleMouseOver = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      const isClickable =
         target.tagName === "A" ||
         target.tagName === "BUTTON" ||
-        target.closest("a") ||
-        target.closest("button") ||
+        !!target.closest("a") ||
+        !!target.closest("button") ||
         target.classList.contains("cursor-pointer");
 
       setIsHovered(!!isClickable);
     };
 
-    window.addEventListener("mousemove", moveCursor);
+    window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mouseover", handleMouseOver);
-
-    // Hide default cursor
     document.body.style.cursor = "none";
 
     return () => {
-      window.removeEventListener("mousemove", moveCursor);
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseover", handleMouseOver);
       document.body.style.cursor = "auto";
     };
-  }, [mouseX, mouseY]);
+  }, [cursorX, cursorY]);
 
   if (!isVisible) return null;
 
   return (
-    <motion.div
-      className="fixed top-0 left-0 rounded-full pointer-events-none z-[99999]"
-      style={{
-        x: cursorX,
-        y: cursorY,
-        translateX: "-50%",
-        translateY: "-50%",
-      }}
-      animate={{
-        // Size: Normal 20px -> Hover 80px (Bada Spotlight)
-        width: isHovered ? 80 : 20,
-        height: isHovered ? 80 : 20,
-        // Color White (Difference mode isse invert karega)
-        backgroundColor: "white",
-        // Magic Mode: Inverts colors behind it
-        mixBlendMode: "difference",
-      }}
-      // Animation Speed for Size Change (Not movement)
-      transition={{ type: "tween", ease: "backOut", duration: 0.2 }}
-    />
+    <>
+      <motion.div
+        className="pointer-events-none fixed left-0 top-0 z-[99999] rounded-full border border-cyan-400/60 bg-cyan-400/10"
+        style={{
+          x: cursorX,
+          y: cursorY,
+          translateX: "-50%",
+          translateY: "-50%",
+        }}
+        animate={{
+          width: isHovered ? 86 : 32,
+          height: isHovered ? 86 : 32,
+          boxShadow: isHovered
+            ? "0 0 0 1px rgba(34,211,238,0.1), 0 0 45px rgba(34,211,238,0.28)"
+            : "0 0 20px rgba(34,211,238,0.18)",
+          opacity: 0.95,
+        }}
+        transition={{ duration: 0.2, ease: "easeOut" }}
+      />
+      <motion.div
+        className="pointer-events-none fixed left-0 top-0 z-[99998] h-3 w-3 rounded-full bg-white shadow-[0_0_18px_rgba(255,255,255,0.8)]"
+        style={{
+          x: cursorX,
+          y: cursorY,
+          translateX: "-50%",
+          translateY: "-50%",
+        }}
+        animate={{
+          scale: isHovered ? 1.5 : 1,
+          backgroundColor: isHovered ? "#67e8f9" : "#ffffff",
+        }}
+        transition={{ duration: 0.2, ease: "easeOut" }}
+      />
+    </>
   );
 }

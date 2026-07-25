@@ -134,6 +134,36 @@
 				"$tsc"
 			],
 			"group": "build"
+		},
+		{
+			"label": "portfolio-verify",
+			"type": "shell",
+			"command": "npm run build && npm run lint",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "portfolio-verify",
+			"type": "shell",
+			"command": "npm run build && npm run lint",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "portfolio-verify",
+			"type": "shell",
+			"command": "npm run build && npm run lint",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
 		}
 	]
 }
