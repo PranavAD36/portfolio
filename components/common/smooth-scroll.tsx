@@ -24,5 +24,5 @@ export default function SmoothScroll() {
     };
   }, []);
 
-  return null; // This component renders nothing visually
+  return null; // This component renders nothing visually.
 }
