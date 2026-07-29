@@ -126,7 +126,7 @@ Everything updates dynamically.
 Feel free to connect with me.
 
 - 📧 Email: pranav.dabhi9969@gmail.com
-- 💼 LinkedIn: https://www.linkedin.com/in/pranavad36
+- 💼 LinkedIn: https://www.linkedin.com/in/pranav-dabhi/
 - 🐙 GitHub: https://github.com/PranavAD36
 
 ---
